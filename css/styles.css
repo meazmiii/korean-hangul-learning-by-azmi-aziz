@@ -49,27 +49,7 @@ body {
 }
 
 /* Vowel filter bar */
-.filter-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center;
-  margin-bottom: 12px;
-}
-.filter-btn {
-  background: transparent;
-  border: 1px solid #333;
-  color: #ccc;
-  padding: 6px 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-.filter-btn.active {
-  background: #00e676;
-  color: #000;
-  border-color: #00e676;
-}
+/* Filter buttons removed */
 .card {
   background: #1e1e1e;
   padding: 2rem;

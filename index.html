@@ -12,26 +12,26 @@
         <button class="tab active" data-tab="huruf" aria-controls="panel-huruf">
           Huruf
         </button>
+        <button class="tab" data-tab="vokal10" aria-controls="panel-vokal10">
+          10 Vokal
+        </button>
+        <button class="tab" data-tab="vokal11" aria-controls="panel-vokal11">
+          11 Vokal Perluasan
+        </button>
+        <button
+          class="tab"
+          data-tab="konsonan14"
+          aria-controls="panel-konsonan14"
+        >
+          14 Konsonan
+        </button>
         <button class="tab" data-tab="kata" aria-controls="panel-kata">
           Kata
         </button>
       </div>
 
       <div class="tab-panel active" id="panel-huruf">
-        <!-- Vowel filter for Huruf -->
-        <div class="filter-bar" id="vowel-filters">
-          <button class="filter-btn active" data-vowel="all">Semua</button>
-          <button class="filter-btn" data-vowel="ㅣ">i (ㅣ)</button>
-          <button class="filter-btn" data-vowel="ㅡ">eu (ㅡ)</button>
-          <button class="filter-btn" data-vowel="ㅏ">a (ㅏ)</button>
-          <button class="filter-btn" data-vowel="ㅑ">ya (ㅑ)</button>
-          <button class="filter-btn" data-vowel="ㅓ">eo (ㅓ)</button>
-          <button class="filter-btn" data-vowel="ㅕ">yeo (ㅕ)</button>
-          <button class="filter-btn" data-vowel="ㅗ">o (ㅗ)</button>
-          <button class="filter-btn" data-vowel="ㅛ">yo (ㅛ)</button>
-          <button class="filter-btn" data-vowel="ㅜ">u (ㅜ)</button>
-          <button class="filter-btn" data-vowel="ㅠ">yu (ㅠ)</button>
-        </div>
+        <!-- (Filter buttons removed) -->
 
         <!-- Area Utama Game -->
         <div class="card">
@@ -81,6 +81,77 @@
           </button>
 
           <div id="vocab-list" class="vocab-list"></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-vokal10">
+        <!-- 10 Vokal Dasar -->
+        <div class="card">
+          <div class="score-board">Skor: <span id="score-vokal">0</span></div>
+          <div class="progress">
+            Huruf ke-<span id="current-num-vokal">1</span> dari
+            <span id="total-num-vokal">0</span>
+          </div>
+          <div class="korean-char" id="korean-text-vokal">ㅏ</div>
+          <p class="instructions">Pilih cara baca yang benar:</p>
+          <div class="options-grid" id="options-container-vokal"></div>
+
+          <button class="btn-cheat" onclick="toggleCheatVokal()">
+            💡 Intip Cheat Vokal (Buka/Tutup)
+          </button>
+        </div>
+
+        <div class="cheat-sheet" id="cheat-sheet-vokal">
+          <h3>10 Vokal</h3>
+          <div class="cheat-grid" id="cheat-grid-vokal"></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-vokal11">
+        <!-- 11 Vokal Perluasan -->
+        <div class="card">
+          <div class="score-board">Skor: <span id="score-vokal11">0</span></div>
+          <div class="progress">
+            Huruf ke-<span id="current-num-vokal11">1</span> dari
+            <span id="total-num-vokal11">0</span>
+          </div>
+          <div class="korean-char" id="korean-text-vokal11">ㅢ</div>
+          <p class="instructions">Pilih cara baca yang benar:</p>
+          <div class="options-grid" id="options-container-vokal11"></div>
+
+          <button class="btn-cheat" onclick="toggleCheatVokal11()">
+            💡 Intip Cheat Vokal Perluasan (Buka/Tutup)
+          </button>
+        </div>
+
+        <div class="cheat-sheet" id="cheat-sheet-vokal11">
+          <h3>11 Vokal Perluasan</h3>
+          <div class="cheat-grid" id="cheat-grid-vokal11"></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-konsonan14">
+        <!-- 14 Konsonan Dasar -->
+        <div class="card">
+          <div class="score-board">
+            Skor: <span id="score-konsonan">0</span>
+          </div>
+          <div class="progress">
+            Konsonan ke-<span id="current-num-konsonan">1</span> dari
+            <span id="total-num-konsonan">0</span>
+          </div>
+          <div class="korean-char" id="korean-text-konsonan">ㄱ</div>
+          <p class="instructions">Pilih cara baca yang benar:</p>
+          <div class="options-grid" id="options-container-konsonan"></div>
+
+          <button class="btn-cheat" onclick="toggleCheatKonsonan()">
+            💡 Intip Cheat Konsonan (Buka/Tutup)
+          </button>
+        </div>
+
+        <div class="cheat-sheet" id="cheat-sheet-konsonan">
+          <h3>14 Konsonan Dasar</h3>
+          <div class="cheat-grid" id="cheat-grid-konsonan"></div>
         </div>
       </div>
     </div>
