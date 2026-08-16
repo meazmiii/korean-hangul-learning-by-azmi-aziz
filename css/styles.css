@@ -1,0 +1,254 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+  max-width: 900px;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  justify-content: center;
+}
+.tab {
+  background: transparent;
+  border: 1px solid #333;
+  color: #ccc;
+  padding: 8px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.tab.active {
+  background: #00e676;
+  color: #000;
+  border-color: #00e676;
+}
+.tab-panel {
+  display: none;
+  width: 100%;
+}
+.tab-panel.active {
+  display: block;
+}
+
+/* Vowel filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+.filter-btn {
+  background: transparent;
+  border: 1px solid #333;
+  color: #ccc;
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.filter-btn.active {
+  background: #00e676;
+  color: #000;
+  border-color: #00e676;
+}
+.card {
+  background: #1e1e1e;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.cheat-sheet {
+  background: #1e1e1e;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  flex: 1;
+  min-width: 300px;
+  max-width: 450px;
+  max-height: 500px;
+  overflow-y: auto;
+  display: none; /* Default tersembunyi */
+}
+
+.cheat-sheet.active {
+  display: block;
+}
+
+.score-board {
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 0.5rem;
+}
+
+.progress {
+  font-size: 0.85rem;
+  color: #00e676;
+  margin-bottom: 1rem;
+}
+
+.korean-char {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #00e676;
+  margin: 1rem 0;
+  min-height: 80px;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+button {
+  background: #2a2a2a;
+  border: 2px solid #333;
+  color: #fff;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: #333;
+  border-color: #00e676;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.btn-cheat {
+  background: #ff9800;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.btn-cheat:hover {
+  background: #f57c00;
+  border-color: transparent;
+}
+
+.correct {
+  background: #1b5e20 !important;
+  border-color: #4caf50 !important;
+}
+
+.wrong {
+  background: #b71c1c !important;
+  border-color: #f44336 !important;
+}
+
+/* Cheat Sheet Table Style */
+.cheat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 8px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.cheat-item {
+  background: #2a2a2a;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.cheat-item .char {
+  font-size: 1.2rem;
+  color: #00e676;
+  font-weight: bold;
+}
+
+.cheat-item .ans {
+  font-size: 0.8rem;
+  color: #ccc;
+}
+
+h3 {
+  margin-top: 0;
+  color: #00e676;
+  border-bottom: 1px solid #333;
+  padding-bottom: 8px;
+}
+
+.instructions {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Vocabulary flashcard styles */
+.vocab-flashcard {
+  padding: 1rem 0;
+}
+
+.korean-char.small {
+  font-size: 2.5rem;
+  color: #00e676;
+  margin-bottom: 0.4rem;
+}
+
+.vocab-rom {
+  color: #ccc;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.vocab-trans {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.vocab-controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.vocab-controls button {
+  flex: 1;
+}
+
+/* scrollable vocab list */
+.vocab-list {
+  display: none;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.vocab-list.active {
+  display: grid;
+}

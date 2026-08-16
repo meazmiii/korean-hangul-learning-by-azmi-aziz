@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game 40 Huruf Hangeul + Cheat Sheet</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="huruf" aria-controls="panel-huruf">
+          Huruf
+        </button>
+        <button class="tab" data-tab="kata" aria-controls="panel-kata">
+          Kata
+        </button>
+      </div>
+
+      <div class="tab-panel active" id="panel-huruf">
+        <!-- Vowel filter for Huruf -->
+        <div class="filter-bar" id="vowel-filters">
+          <button class="filter-btn active" data-vowel="all">Semua</button>
+          <button class="filter-btn" data-vowel="ㅣ">i (ㅣ)</button>
+          <button class="filter-btn" data-vowel="ㅡ">eu (ㅡ)</button>
+          <button class="filter-btn" data-vowel="ㅏ">a (ㅏ)</button>
+          <button class="filter-btn" data-vowel="ㅑ">ya (ㅑ)</button>
+          <button class="filter-btn" data-vowel="ㅓ">eo (ㅓ)</button>
+          <button class="filter-btn" data-vowel="ㅕ">yeo (ㅕ)</button>
+          <button class="filter-btn" data-vowel="ㅗ">o (ㅗ)</button>
+          <button class="filter-btn" data-vowel="ㅛ">yo (ㅛ)</button>
+          <button class="filter-btn" data-vowel="ㅜ">u (ㅜ)</button>
+          <button class="filter-btn" data-vowel="ㅠ">yu (ㅠ)</button>
+        </div>
+
+        <!-- Area Utama Game -->
+        <div class="card">
+          <div class="score-board">Skor: <span id="score">0</span></div>
+          <div class="progress">
+            Huruf ke-<span id="current-num">1</span> dari
+            <span id="total-num">40</span>
+          </div>
+          <div class="korean-char" id="korean-text">ㄱ</div>
+          <p class="instructions">Pilih cara baca yang benar:</p>
+          <div class="options-grid" id="options-container"></div>
+
+          <button class="btn-cheat" onclick="toggleCheat()">
+            💡 Intip Cheat Code (Buka/Tutup)
+          </button>
+        </div>
+
+        <!-- Area Cheat Sheet / Kamus -->
+        <div class="cheat-sheet" id="cheat-sheet">
+          <h3>Cheat Sheet Hangeul (40 Huruf)</h3>
+          <div class="cheat-grid" id="cheat-grid"></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-kata">
+        <!-- Area Belajar Kata -->
+        <div class="card" id="vocab-card">
+          <h3>Belajar Kata</h3>
+          <div class="score-board">
+            Kata ke-<span id="vocab-current-num">1</span> dari
+            <span id="vocab-total-num">0</span>
+          </div>
+          <div id="vocab-flashcard" class="vocab-flashcard">
+            <div id="vocab-korean" class="korean-char small"></div>
+            <div id="vocab-rom" class="vocab-rom"></div>
+            <div id="vocab-trans" class="vocab-trans"></div>
+          </div>
+
+          <div class="vocab-controls">
+            <button id="prev-vocab">← Sebelumnya</button>
+            <button id="reveal-vocab">Tampilkan</button>
+            <button id="next-vocab">Selanjutnya →</button>
+          </div>
+
+          <button id="toggle-vocab-list" class="btn-cheat">
+            Daftar Kata (Buka/Tutup)
+          </button>
+
+          <div id="vocab-list" class="vocab-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="src/app.js"></script>
+  </body>
+</html>
