@@ -43,8 +43,11 @@ const quizData = [
 ];
 
 const vowelCues = {
-  "ㅡ": { emoji: "😬", label: "gigi rapat" },
-  "ㅗ": { emoji: "😮", label: "mulut terkejut" },
+  "ㅡ": { emoji: "😐", label: "mulut datar" },
+  "ㅣ": { emoji: "😬", label: "gigi terlihat" },
+  "ㅓ": { emoji: "😮", label: "mulut terkejut" },
+  "ㅏ": { emoji: "🥱", label: "mulut terbuka lebar" },
+  "ㅗ": { emoji: "😯", label: "mulut bulat seperti O" },
   "ㅜ": { emoji: "😗", label: "mulut mencium" },
 };
 
