@@ -102,42 +102,25 @@ function speakKorean(text) {
   }
 
   const voices = window.speechSynthesis.getVoices();
-  if (!voices.length) {
-    window.speechSynthesis.addEventListener(
-      "voiceschanged",
-      () => speakKorean(text),
-      { once: true },
-    );
-    window.setTimeout(() => {
-      if (!window.speechSynthesis.getVoices().length && status) {
-        status.textContent =
-          "Suara Korea belum tersedia. Tambahkan suara Korea di pengaturan perangkat.";
-      }
-    }, 1500);
-    return;
-  }
   const koreanVoice = voices.find((voice) =>
     voice.lang.toLowerCase().startsWith("ko"),
   );
-  if (!koreanVoice) {
-    if (status) {
-      status.textContent =
-        "Suara Korea belum tersedia. Tambahkan suara Korea di pengaturan perangkat.";
-    }
-    return;
-  }
 
   window.speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = "ko-KR";
-  utterance.voice = koreanVoice;
+  if (koreanVoice) utterance.voice = koreanVoice;
   utterance.rate = 0.85;
   utterance.onstart = () => {
     if (status) status.textContent = "";
   };
   utterance.onerror = (event) => {
     if (event.error === "canceled" || event.error === "interrupted") return;
-    if (status) status.textContent = "Audio gagal diputar. Coba lagi.";
+    if (status) {
+      status.textContent = koreanVoice
+        ? "Audio gagal diputar. Coba lagi."
+        : "Browser tidak menemukan suara Korea. Pastikan Google Speech Services aktif.";
+    }
   };
   window.speechSynthesis.speak(utterance);
 }
