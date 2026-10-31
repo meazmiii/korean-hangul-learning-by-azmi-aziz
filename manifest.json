@@ -1,7 +1,7 @@
 {
   "name": "Korean Learning App by Azmi Aziz",
   "short_name": "Korean",
-  "description": "Belajar huruf dan kata Korea - latihan interaktif",
+  "description": "Belajar Hangul dan kosakata Korea dengan audio interaktif",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#ffffff",

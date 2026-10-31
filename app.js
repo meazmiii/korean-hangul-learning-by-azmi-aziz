@@ -1,101 +1,193 @@
 // Monolithic app.js (single-file version)
 const quizData = [
-  { char: "ㄱ", answer: "G / K" },
-  { char: "ㄴ", answer: "N" },
-  { char: "ㄷ", answer: "D / T" },
-  { char: "ㄹ", answer: "R / L" },
-  { char: "ㅁ", answer: "M" },
-  { char: "ㅂ", answer: "B / P" },
-  { char: "ㅅ", answer: "S" },
-  { char: "ㅇ", answer: "NG / Diam" },
-  { char: "ㅈ", answer: "J" },
-  { char: "ㅊ", answer: "Ch" },
-  { char: "ㅋ", answer: "Kh" },
-  { char: "ㅌ", answer: "Th" },
-  { char: "ㅍ", answer: "Ph" },
-  { char: "ㅎ", answer: "H" },
-  { char: "ㄲ", answer: "KK" },
-  { char: "ㄸ", answer: "TT" },
-  { char: "ㅃ", answer: "PP" },
-  { char: "ㅆ", answer: "SS" },
-  { char: "ㅉ", answer: "JJ" },
-  { char: "ㅏ", answer: "A" },
-  { char: "ㅑ", answer: "YA" },
-  { char: "ㅓ", answer: "EO" },
-  { char: "ㅕ", answer: "YEO" },
-  { char: "ㅗ", answer: "O" },
-  { char: "ㅛ", answer: "YO" },
-  { char: "ㅜ", answer: "U" },
-  { char: "ㅠ", answer: "YU" },
-  { char: "ㅡ", answer: "EU" },
-  { char: "ㅣ", answer: "I" },
-  { char: "ㅐ", answer: "AE" },
-  { char: "ㅒ", answer: "YAE" },
-  { char: "ㅔ", answer: "E" },
-  { char: "ㅖ", answer: "YE" },
-  { char: "ㅘ", answer: "WA" },
-  { char: "ㅙ", answer: "WAE" },
-  { char: "ㅚ", answer: "OE / WE" },
-  { char: "ㅝ", answer: "WO" },
-  { char: "ㅞ", answer: "WE" },
-  { char: "ㅟ", answer: "WI" },
-  { char: "ㅢ", answer: "UI / EUI" },
+  { char: "ㄱ", audio: "가" },
+  { char: "ㄴ", audio: "나" },
+  { char: "ㄷ", audio: "다" },
+  { char: "ㄹ", audio: "라" },
+  { char: "ㅁ", audio: "마" },
+  { char: "ㅂ", audio: "바" },
+  { char: "ㅅ", audio: "사" },
+  { char: "ㅇ", audio: "아" },
+  { char: "ㅈ", audio: "자" },
+  { char: "ㅊ", audio: "차" },
+  { char: "ㅋ", audio: "카" },
+  { char: "ㅌ", audio: "타" },
+  { char: "ㅍ", audio: "파" },
+  { char: "ㅎ", audio: "하" },
+  { char: "ㄲ", audio: "까" },
+  { char: "ㄸ", audio: "따" },
+  { char: "ㅃ", audio: "빠" },
+  { char: "ㅆ", audio: "싸" },
+  { char: "ㅉ", audio: "짜" },
+  { char: "ㅏ", audio: "아" },
+  { char: "ㅑ", audio: "야" },
+  { char: "ㅓ", audio: "어" },
+  { char: "ㅕ", audio: "여" },
+  { char: "ㅗ", audio: "오" },
+  { char: "ㅛ", audio: "요" },
+  { char: "ㅜ", audio: "우" },
+  { char: "ㅠ", audio: "유" },
+  { char: "ㅡ", audio: "으" },
+  { char: "ㅣ", audio: "이" },
+  { char: "ㅐ", audio: "애" },
+  { char: "ㅒ", audio: "얘" },
+  { char: "ㅔ", audio: "에" },
+  { char: "ㅖ", audio: "예" },
+  { char: "ㅘ", audio: "와" },
+  { char: "ㅙ", audio: "왜" },
+  { char: "ㅚ", audio: "외" },
+  { char: "ㅝ", audio: "워" },
+  { char: "ㅞ", audio: "웨" },
+  { char: "ㅟ", audio: "위" },
+  { char: "ㅢ", audio: "의" },
 ];
 
 const vocabData = [
   {
     k: "안녕하세요",
-    r: "annyeonghaseyo",
     t: "Halo / Selamat pagi / siang / malam",
   },
-  { k: "안녕하십니까", r: "annyeonghasimnika", t: "Halo (lebih formal)" },
+  { k: "안녕하십니까", t: "Halo (lebih formal)" },
   {
     k: "안녕히 가세요",
-    r: "annyeonghi gaseyo",
     t: "Selamat jalan (kepada yang pergi)",
   },
   {
     k: "안녕히 계세요",
-    r: "annyeonghi gyeseyo",
     t: "Selamat tinggal (kepada yang tinggal)",
   },
-  { k: "감사합니다", r: "gamsahamnida", t: "Terima kasih" },
-  { k: "고맙습니다", r: "gomapseumnida", t: "Terima kasih" },
-  { k: "미안합니다", r: "mianhamnida", t: "Maaf" },
-  { k: "죄송합니다", r: "joesonghamnida", t: "Mohon maaf / Maaf" },
+  { k: "감사합니다", t: "Terima kasih" },
+  { k: "고맙습니다", t: "Terima kasih" },
+  { k: "미안합니다", t: "Maaf" },
+  { k: "죄송합니다", t: "Mohon maaf / Maaf" },
   {
     k: "괜찮습니다",
-    r: "gwaenchansumnida",
     t: "Tidak apa-apa / Baik-baik saja",
   },
-  { k: "괜찮아요", r: "gwaenchanayo", t: "Tidak apa-apa / Baik-baik saja" },
-  { k: "어디", r: "eodi", t: "Mana / Di mana" },
-  { k: "여기", r: "yeogi", t: "Sini / Di sini" },
-  { k: "거기", r: "geogi", t: "Situ / Di situ" },
-  { k: "저기", r: "jeogi", t: "Sana / Di sana" },
-  { k: "화장실", r: "hwajangsil", t: "Toilet / Kamar mandi" },
-  { k: "공항", r: "gonghang", t: "Bandara" },
-  { k: "역", r: "yeok", t: "Stasiun" },
-  { k: "지하철", r: "jihacheol", t: "Kereta bawah tanah / MRT" },
-  { k: "택시", r: "taeksi", t: "Taksi" },
-  { k: "버스", r: "beoseu", t: "Bus" },
-  { k: "식당", r: "sikdang", t: "Restoran / Rumah makan" },
-  { k: "호텔", r: "hotel", t: "Hotel" },
-  { k: "얼마", r: "eolma", t: "Berapa (harga)" },
-  { k: "이것", r: "igeot", t: "Ini / Barang ini" },
-  { k: "이거", r: "igeo", t: "Ini / Barang ini (kolokial)" },
-  { k: "주세요", r: "juseyo", t: "Tolong beri / Minta" },
-  { k: "물", r: "mul", t: "Air" },
-  { k: "밥", r: "bap", t: "Nasi / Makanan" },
-  { k: "메뉴", r: "menyu", t: "Menu" },
-  { k: "계산", r: "gyesan", t: "Perhitungan / Pembayaran" },
-  { k: "카드", r: "kadeu", t: "Kartu (kredit/debit)" },
-  { k: "현금", r: "hyeongeum", t: "Uang tunai" },
-  { k: "맛있어요", r: "masisseoyo", t: "Enak" },
+  { k: "괜찮아요", t: "Tidak apa-apa / Baik-baik saja" },
+  { k: "어디", t: "Mana / Di mana" },
+  { k: "여기", t: "Sini / Di sini" },
+  { k: "거기", t: "Situ / Di situ" },
+  { k: "저기", t: "Sana / Di sana" },
+  { k: "화장실", t: "Toilet / Kamar mandi" },
+  { k: "공항", t: "Bandara" },
+  { k: "역", t: "Stasiun" },
+  { k: "지하철", t: "Kereta bawah tanah / MRT" },
+  { k: "택시", t: "Taksi" },
+  { k: "버스", t: "Bus" },
+  { k: "식당", t: "Restoran / Rumah makan" },
+  { k: "호텔", t: "Hotel" },
+  { k: "얼마", t: "Berapa (harga)" },
+  { k: "이것", t: "Ini / Barang ini" },
+  { k: "이거", t: "Ini / Barang ini (kolokial)" },
+  { k: "주세요", t: "Tolong beri / Minta" },
+  { k: "물", t: "Air" },
+  { k: "밥", t: "Nasi / Makanan" },
+  { k: "메뉴", t: "Menu" },
+  { k: "계산", t: "Perhitungan / Pembayaran" },
+  { k: "카드", t: "Kartu (kredit/debit)" },
+  { k: "현금", t: "Uang tunai" },
+  { k: "맛있어요", t: "Enak" },
 ];
 
 function shuffle(array) {
   return array.slice().sort(() => Math.random() - 0.5);
+}
+
+function speakKorean(text) {
+  const status = document.getElementById("audio-status");
+  if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
+    if (status) status.textContent = "Audio tidak didukung di browser ini.";
+    return;
+  }
+
+  const voices = window.speechSynthesis.getVoices();
+  if (!voices.length) {
+    window.speechSynthesis.addEventListener(
+      "voiceschanged",
+      () => speakKorean(text),
+      { once: true },
+    );
+    window.setTimeout(() => {
+      if (!window.speechSynthesis.getVoices().length && status) {
+        status.textContent =
+          "Suara Korea belum tersedia. Tambahkan suara Korea di pengaturan perangkat.";
+      }
+    }, 1500);
+    return;
+  }
+  const koreanVoice = voices.find((voice) =>
+    voice.lang.toLowerCase().startsWith("ko"),
+  );
+  if (!koreanVoice) {
+    if (status) {
+      status.textContent =
+        "Suara Korea belum tersedia. Tambahkan suara Korea di pengaturan perangkat.";
+    }
+    return;
+  }
+
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "ko-KR";
+  utterance.voice = koreanVoice;
+  utterance.rate = 0.85;
+  utterance.onstart = () => {
+    if (status) status.textContent = "";
+  };
+  utterance.onerror = (event) => {
+    if (event.error === "canceled" || event.error === "interrupted") return;
+    if (status) status.textContent = "Audio gagal diputar. Coba lagi.";
+  };
+  window.speechSynthesis.speak(utterance);
+}
+
+function createAudioButton(text, label = "Dengarkan") {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "audio-button";
+  button.textContent = `🔊 ${label}`;
+  button.setAttribute("aria-label", `${label}: ${text}`);
+  button.addEventListener("click", (event) => {
+    event.stopPropagation();
+    speakKorean(text);
+  });
+  return button;
+}
+
+function renderHangulOptions(question, data, containerId, onAnswer) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  const distractors = shuffle(data.filter((item) => item.char !== question.char))
+    .slice(0, 3);
+  const options = shuffle([question, ...distractors]);
+  container.replaceChildren();
+  options.forEach((option) => {
+    const button = document.createElement("button");
+    button.textContent = option.char;
+    button.setAttribute("aria-label", `Pilih ${option.char}`);
+    button.addEventListener("click", () =>
+      onAnswer(button, option.char === question.char),
+    );
+    container.appendChild(button);
+  });
+}
+
+function renderCheatSheet(gridId, data) {
+  const grid = document.getElementById(gridId);
+  if (!grid) return;
+
+  grid.replaceChildren();
+  data.forEach((item) => {
+    const card = document.createElement("div");
+    card.className = "cheat-item";
+    const char = document.createElement("div");
+    char.className = "char";
+    char.textContent = item.char;
+    card.append(char, createAudioButton(item.audio));
+    grid.appendChild(card);
+  });
 }
 
 // Build a quiz pool of `count` items from `data`, allowing repeats when data.length < count
@@ -116,34 +208,7 @@ let currentQuestion = 0;
 let score = 0;
 
 function initCheatSheet() {
-  const grid = document.getElementById("cheat-grid");
-  if (!grid) return;
-  grid.innerHTML = "";
-  quizData.forEach((item) => {
-    const div = document.createElement("div");
-    div.className = "cheat-item";
-    div.innerHTML = `<div class="char">${item.char}</div><div class="ans">${item.answer}</div>`;
-    // click -> open Huruf tab and jump to that character
-    div.addEventListener("click", () => {
-      // reset quiz to full list and jump to selected char
-      shuffledQuiz = shuffle(quizData.slice());
-      const idx = shuffledQuiz.findIndex((q) => q.char === item.char);
-      currentQuestion = idx >= 0 ? idx : 0;
-      // activate tab/panel
-      document
-        .querySelectorAll(".tab")
-        .forEach((t) => t.classList.remove("active"));
-      const tab = document.querySelector('.tab[data-tab="huruf"]');
-      if (tab) tab.classList.add("active");
-      document
-        .querySelectorAll(".tab-panel")
-        .forEach((p) => p.classList.remove("active"));
-      const panel = document.getElementById("panel-huruf");
-      if (panel) panel.classList.add("active");
-      loadQuestion();
-    });
-    grid.appendChild(div);
-  });
+  renderCheatSheet("cheat-grid", quizData);
 }
 
 function initGame() {
@@ -158,9 +223,7 @@ function initGame() {
 
 function loadQuestion() {
   const container = document.getElementById("options-container");
-  const koreanEl = document.getElementById("korean-text");
   if (!shuffledQuiz || shuffledQuiz.length === 0) {
-    if (koreanEl) koreanEl.innerText = "-";
     if (container)
       container.innerHTML =
         '<div class="instructions">Tidak ada huruf untuk ditampilkan.</div>';
@@ -168,24 +231,9 @@ function loadQuestion() {
     return;
   }
   const q = shuffledQuiz[currentQuestion];
-  if (koreanEl) koreanEl.innerText = q.char;
   document.getElementById("current-num").innerText = currentQuestion + 1;
-
-  let options = [q.answer];
-  while (options.length < 4) {
-    let randomAns =
-      quizData[Math.floor(Math.random() * quizData.length)].answer;
-    if (!options.includes(randomAns)) options.push(randomAns);
-  }
-  options = shuffle(options);
-
-  container.innerHTML = "";
-  options.forEach((opt) => {
-    const btn = document.createElement("button");
-    btn.innerText = opt;
-    btn.addEventListener("click", () => checkAnswer(btn, opt === q.answer));
-    container.appendChild(btn);
-  });
+  document.getElementById("play-audio").onclick = () => speakKorean(q.audio);
+  renderHangulOptions(q, quizData, "options-container", checkAnswer);
 }
 
 function checkAnswer(btn, isCorrect) {
@@ -219,32 +267,7 @@ function getVowel10Quiz() {
   return quizData.filter((it) => vowels.includes(it.char));
 }
 function initCheatSheetVokal() {
-  const grid = document.getElementById("cheat-grid-vokal");
-  if (!grid) return;
-  grid.innerHTML = "";
-  getVowel10Quiz().forEach((item) => {
-    const d = document.createElement("div");
-    d.className = "cheat-item";
-    d.innerHTML = `<div class="char">${item.char}</div><div class="ans">${item.answer}</div>`;
-    // click -> open 10 Vokal tab and jump to that vowel
-    d.addEventListener("click", () => {
-      shuffledQuizVokal = shuffle(getVowel10Quiz());
-      const idx = shuffledQuizVokal.findIndex((q) => q.char === item.char);
-      currentQuestionVokal = idx >= 0 ? idx : 0;
-      document
-        .querySelectorAll(".tab")
-        .forEach((t) => t.classList.remove("active"));
-      const tab = document.querySelector('.tab[data-tab="vokal10"]');
-      if (tab) tab.classList.add("active");
-      document
-        .querySelectorAll(".tab-panel")
-        .forEach((p) => p.classList.remove("active"));
-      const panel = document.getElementById("panel-vokal10");
-      if (panel) panel.classList.add("active");
-      loadQuestionVokal();
-    });
-    grid.appendChild(d);
-  });
+  renderCheatSheet("cheat-grid-vokal", getVowel10Quiz());
 }
 function initGameVokal() {
   shuffledQuizVokal = createQuizPool(getVowel10Quiz(), 50);
@@ -258,9 +281,7 @@ function initGameVokal() {
 }
 function loadQuestionVokal() {
   const container = document.getElementById("options-container-vokal");
-  const koreanEl = document.getElementById("korean-text-vokal");
   if (!shuffledQuizVokal || shuffledQuizVokal.length === 0) {
-    if (koreanEl) koreanEl.innerText = "-";
     if (container)
       container.innerHTML =
         '<div class="instructions">Tidak ada huruf untuk ditampilkan.</div>';
@@ -268,25 +289,16 @@ function loadQuestionVokal() {
     return;
   }
   const q = shuffledQuizVokal[currentQuestionVokal];
-  if (koreanEl) koreanEl.innerText = q.char;
   document.getElementById("current-num-vokal").innerText =
     currentQuestionVokal + 1;
-  let options = [q.answer];
-  while (options.length < 4) {
-    let randomAns =
-      quizData[Math.floor(Math.random() * quizData.length)].answer;
-    if (!options.includes(randomAns)) options.push(randomAns);
-  }
-  options = shuffle(options);
-  container.innerHTML = "";
-  options.forEach((opt) => {
-    const btn = document.createElement("button");
-    btn.innerText = opt;
-    btn.addEventListener("click", () =>
-      checkAnswerVokal(btn, opt === q.answer),
-    );
-    container.appendChild(btn);
-  });
+  document.getElementById("play-audio-vokal").onclick = () =>
+    speakKorean(q.audio);
+  renderHangulOptions(
+    q,
+    getVowel10Quiz(),
+    "options-container-vokal",
+    checkAnswerVokal,
+  );
 }
 function checkAnswerVokal(btn, isCorrect) {
   const buttons = document.querySelectorAll("#options-container-vokal button");
@@ -326,48 +338,10 @@ function getVowel11Quiz() {
     "ㅝ",
     "ㅚ",
   ];
-  const mapping = {
-    ㅢ: "UI / EUI",
-    ㅐ: "AE",
-    ㅒ: "YAE",
-    ㅔ: "E",
-    ㅖ: "YE",
-    ㅞ: "WE",
-    ㅘ: "WA",
-    ㅙ: "WAE",
-    ㅟ: "WI",
-    ㅝ: "WO",
-    ㅚ: "OE / WE",
-  };
-  return chars.map((ch) => ({ char: ch, answer: mapping[ch] }));
+  return quizData.filter((item) => chars.includes(item.char));
 }
 function initCheatSheetVokal11() {
-  const grid = document.getElementById("cheat-grid-vokal11");
-  if (!grid) return;
-  grid.innerHTML = "";
-  getVowel11Quiz().forEach((item) => {
-    const d = document.createElement("div");
-    d.className = "cheat-item";
-    d.innerHTML = `<div class="char">${item.char}</div><div class="ans">${item.answer}</div>`;
-    // click -> open 11 Vokal tab and jump to that vowel
-    d.addEventListener("click", () => {
-      shuffledQuizVokal11 = shuffle(getVowel11Quiz());
-      const idx = shuffledQuizVokal11.findIndex((q) => q.char === item.char);
-      currentQuestionVokal11 = idx >= 0 ? idx : 0;
-      document
-        .querySelectorAll(".tab")
-        .forEach((t) => t.classList.remove("active"));
-      const tab = document.querySelector('.tab[data-tab="vokal11"]');
-      if (tab) tab.classList.add("active");
-      document
-        .querySelectorAll(".tab-panel")
-        .forEach((p) => p.classList.remove("active"));
-      const panel = document.getElementById("panel-vokal11");
-      if (panel) panel.classList.add("active");
-      loadQuestionVokal11();
-    });
-    grid.appendChild(d);
-  });
+  renderCheatSheet("cheat-grid-vokal11", getVowel11Quiz());
 }
 function initGameVokal11() {
   shuffledQuizVokal11 = createQuizPool(getVowel11Quiz(), 50);
@@ -381,9 +355,7 @@ function initGameVokal11() {
 }
 function loadQuestionVokal11() {
   const container = document.getElementById("options-container-vokal11");
-  const koreanEl = document.getElementById("korean-text-vokal11");
   if (!shuffledQuizVokal11 || shuffledQuizVokal11.length === 0) {
-    if (koreanEl) koreanEl.innerText = "-";
     if (container)
       container.innerHTML =
         '<div class="instructions">Tidak ada huruf untuk ditampilkan.</div>';
@@ -391,25 +363,16 @@ function loadQuestionVokal11() {
     return;
   }
   const q = shuffledQuizVokal11[currentQuestionVokal11];
-  if (koreanEl) koreanEl.innerText = q.char;
   document.getElementById("current-num-vokal11").innerText =
     currentQuestionVokal11 + 1;
-  let options = [q.answer];
-  while (options.length < 4) {
-    let randomAns =
-      quizData[Math.floor(Math.random() * quizData.length)].answer;
-    if (!options.includes(randomAns)) options.push(randomAns);
-  }
-  options = shuffle(options);
-  container.innerHTML = "";
-  options.forEach((opt) => {
-    const btn = document.createElement("button");
-    btn.innerText = opt;
-    btn.addEventListener("click", () =>
-      checkAnswerVokal11(btn, opt === q.answer),
-    );
-    container.appendChild(btn);
-  });
+  document.getElementById("play-audio-vokal11").onclick = () =>
+    speakKorean(q.audio);
+  renderHangulOptions(
+    q,
+    getVowel11Quiz(),
+    "options-container-vokal11",
+    checkAnswerVokal11,
+  );
 }
 function checkAnswerVokal11(btn, isCorrect) {
   const buttons = document.querySelectorAll(
@@ -455,38 +418,11 @@ function getKonsonan14Quiz() {
     "ㅌ",
     "ㅍ",
   ];
-  const overrides = { ㅊ: "Ch", ㅋ: "Kh", ㅌ: "Th", ㅍ: "Ph", ㅇ: "NG / Diam" };
   return quizData
-    .filter((it) => chars.includes(it.char))
-    .map((it) => ({ char: it.char, answer: overrides[it.char] || it.answer }));
+    .filter((it) => chars.includes(it.char));
 }
 function initCheatSheetKonsonan() {
-  const grid = document.getElementById("cheat-grid-konsonan");
-  if (!grid) return;
-  grid.innerHTML = "";
-  getKonsonan14Quiz().forEach((item) => {
-    const d = document.createElement("div");
-    d.className = "cheat-item";
-    d.innerHTML = `<div class="char">${item.char}</div><div class="ans">${item.answer}</div>`;
-    // click -> open 14 Konsonan tab and jump to that consonant
-    d.addEventListener("click", () => {
-      shuffledQuizKonsonan = shuffle(getKonsonan14Quiz());
-      const idx = shuffledQuizKonsonan.findIndex((q) => q.char === item.char);
-      currentQuestionKonsonan = idx >= 0 ? idx : 0;
-      document
-        .querySelectorAll(".tab")
-        .forEach((t) => t.classList.remove("active"));
-      const tab = document.querySelector('.tab[data-tab="konsonan14"]');
-      if (tab) tab.classList.add("active");
-      document
-        .querySelectorAll(".tab-panel")
-        .forEach((p) => p.classList.remove("active"));
-      const panel = document.getElementById("panel-konsonan14");
-      if (panel) panel.classList.add("active");
-      loadQuestionKonsonan();
-    });
-    grid.appendChild(d);
-  });
+  renderCheatSheet("cheat-grid-konsonan", getKonsonan14Quiz());
 }
 function initGameKonsonan() {
   shuffledQuizKonsonan = createQuizPool(getKonsonan14Quiz(), 50);
@@ -500,9 +436,7 @@ function initGameKonsonan() {
 }
 function loadQuestionKonsonan() {
   const container = document.getElementById("options-container-konsonan");
-  const koreanEl = document.getElementById("korean-text-konsonan");
   if (!shuffledQuizKonsonan || shuffledQuizKonsonan.length === 0) {
-    if (koreanEl) koreanEl.innerText = "-";
     if (container)
       container.innerHTML =
         '<div class="instructions">Tidak ada huruf untuk ditampilkan.</div>';
@@ -510,25 +444,16 @@ function loadQuestionKonsonan() {
     return;
   }
   const q = shuffledQuizKonsonan[currentQuestionKonsonan];
-  if (koreanEl) koreanEl.innerText = q.char;
   document.getElementById("current-num-konsonan").innerText =
     currentQuestionKonsonan + 1;
-  let options = [q.answer];
-  while (options.length < 4) {
-    let randomAns =
-      quizData[Math.floor(Math.random() * quizData.length)].answer;
-    if (!options.includes(randomAns)) options.push(randomAns);
-  }
-  options = shuffle(options);
-  container.innerHTML = "";
-  options.forEach((opt) => {
-    const btn = document.createElement("button");
-    btn.innerText = opt;
-    btn.addEventListener("click", () =>
-      checkAnswerKonsonan(btn, opt === q.answer),
-    );
-    container.appendChild(btn);
-  });
+  document.getElementById("play-audio-konsonan").onclick = () =>
+    speakKorean(q.audio);
+  renderHangulOptions(
+    q,
+    getKonsonan14Quiz(),
+    "options-container-konsonan",
+    checkAnswerKonsonan,
+  );
 }
 function checkAnswerKonsonan(btn, isCorrect) {
   const buttons = document.querySelectorAll(
@@ -588,10 +513,10 @@ function renderVocabCard() {
   if (!shuffledVocab.length) return;
   const item = shuffledVocab[currentVocab];
   const k = document.getElementById("vocab-korean");
-  const r = document.getElementById("vocab-rom");
   const t = document.getElementById("vocab-trans");
   if (k) k.innerText = item.k;
-  if (r) r.innerText = vocabRevealed ? item.r : "";
+  document.getElementById("play-vocab-audio").onclick = () =>
+    speakKorean(item.k);
   if (t) t.innerText = vocabRevealed ? item.t : "";
   const revealBtn = document.getElementById("reveal-vocab");
   if (revealBtn)
@@ -606,7 +531,13 @@ function renderVocabList() {
   shuffledVocab.forEach((it, idx) => {
     const div = document.createElement("div");
     div.className = "cheat-item";
-    div.innerHTML = `<div class="char">${it.k}</div><div class="ans">${it.r}<br/><span style="color:#ccc;font-size:0.85rem">${it.t}</span></div>`;
+    const word = document.createElement("div");
+    word.className = "char";
+    word.textContent = it.k;
+    const translation = document.createElement("div");
+    translation.className = "vocab-trans";
+    translation.textContent = it.t;
+    div.append(word, createAudioButton(it.k), translation);
     div.addEventListener("click", () => {
       currentVocab = idx;
       vocabRevealed = false;

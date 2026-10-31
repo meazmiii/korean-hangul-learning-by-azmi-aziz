@@ -44,18 +44,21 @@
             Huruf ke-<span id="current-num">1</span> dari
             <span id="total-num">40</span>
           </div>
-          <div class="korean-char" id="korean-text">ㄱ</div>
-          <p class="instructions">Pilih cara baca yang benar:</p>
+          <div class="korean-char audio-prompt">Dengarkan bunyi Hangul</div>
+          <button class="audio-button" id="play-audio" type="button">
+            🔊 Dengarkan
+          </button>
+          <p class="instructions">Pilih Hangul yang sesuai:</p>
           <div class="options-grid" id="options-container"></div>
 
           <button class="btn-cheat" data-panel="huruf">
-            💡 Intip Cheat Code (Buka/Tutup)
+            💡 Lihat daftar Hangul (Buka/Tutup)
           </button>
         </div>
 
         <!-- Area Cheat Sheet / Kamus -->
         <div class="cheat-sheet" id="cheat-sheet">
-          <h3>Cheat Sheet Hangeul (40 Huruf)</h3>
+          <h3>Hangul (40 huruf)</h3>
           <div class="cheat-grid" id="cheat-grid"></div>
         </div>
       </div>
@@ -70,7 +73,9 @@
           </div>
           <div id="vocab-flashcard" class="vocab-flashcard">
             <div id="vocab-korean" class="korean-char small"></div>
-            <div id="vocab-rom" class="vocab-rom"></div>
+            <button class="audio-button" id="play-vocab-audio" type="button">
+              🔊 Dengarkan
+            </button>
             <div id="vocab-trans" class="vocab-trans"></div>
           </div>
 
@@ -96,8 +101,11 @@
             Huruf ke-<span id="current-num-vokal">1</span> dari
             <span id="total-num-vokal">0</span>
           </div>
-          <div class="korean-char" id="korean-text-vokal">ㅏ</div>
-          <p class="instructions">Pilih cara baca yang benar:</p>
+          <div class="korean-char audio-prompt">Dengarkan bunyi Hangul</div>
+          <button class="audio-button" id="play-audio-vokal" type="button">
+            🔊 Dengarkan
+          </button>
+          <p class="instructions">Pilih Hangul yang sesuai:</p>
           <div class="options-grid" id="options-container-vokal"></div>
 
           <button class="btn-cheat" data-panel="vokal10">
@@ -119,8 +127,11 @@
             Huruf ke-<span id="current-num-vokal11">1</span> dari
             <span id="total-num-vokal11">0</span>
           </div>
-          <div class="korean-char" id="korean-text-vokal11">ㅢ</div>
-          <p class="instructions">Pilih cara baca yang benar:</p>
+          <div class="korean-char audio-prompt">Dengarkan bunyi Hangul</div>
+          <button class="audio-button" id="play-audio-vokal11" type="button">
+            🔊 Dengarkan
+          </button>
+          <p class="instructions">Pilih Hangul yang sesuai:</p>
           <div class="options-grid" id="options-container-vokal11"></div>
 
           <button class="btn-cheat" data-panel="vokal11">
@@ -144,8 +155,11 @@
             Konsonan ke-<span id="current-num-konsonan">1</span> dari
             <span id="total-num-konsonan">0</span>
           </div>
-          <div class="korean-char" id="korean-text-konsonan">ㄱ</div>
-          <p class="instructions">Pilih cara baca yang benar:</p>
+          <div class="korean-char audio-prompt">Dengarkan bunyi Hangul</div>
+          <button class="audio-button" id="play-audio-konsonan" type="button">
+            🔊 Dengarkan
+          </button>
+          <p class="instructions">Pilih Hangul yang sesuai:</p>
           <div class="options-grid" id="options-container-konsonan"></div>
 
           <button class="btn-cheat" data-panel="konsonan14">
@@ -160,6 +174,7 @@
       </div>
     </div>
 
+    <p id="audio-status" class="audio-status" role="status" aria-live="polite"></p>
     <script type="module" src="app.js"></script>
   </body>
 </html>

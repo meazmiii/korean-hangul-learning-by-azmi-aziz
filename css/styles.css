@@ -114,6 +114,34 @@ body {
   min-height: 80px;
 }
 
+.korean-char.audio-prompt {
+  font-size: 1.5rem;
+  min-height: auto;
+  margin-bottom: 0.75rem;
+}
+
+.audio-button {
+  background: #00e676;
+  color: #000;
+  border: none;
+  font-weight: bold;
+}
+
+.audio-button:hover {
+  background: #00c853;
+}
+
+.audio-status {
+  width: 100%;
+  text-align: center;
+  color: #ff8a80;
+  margin: 0;
+}
+
+.audio-status:empty {
+  display: none;
+}
+
 /* Mobile responsive adjustments */
 @media (max-width: 600px) {
   body {
@@ -251,9 +279,9 @@ button:active {
   font-weight: bold;
 }
 
-.cheat-item .ans {
-  font-size: 0.8rem;
-  color: #ccc;
+.cheat-item .audio-button {
+  width: 100%;
+  margin-top: 8px;
 }
 
 h3 {
@@ -277,12 +305,6 @@ h3 {
   font-size: 2.5rem;
   color: #00e676;
   margin-bottom: 0.4rem;
-}
-
-.vocab-rom {
-  color: #ccc;
-  font-size: 0.95rem;
-  margin-bottom: 0.25rem;
 }
 
 .vocab-trans {
@@ -330,5 +352,5 @@ h3 {
   margin-top: 18px;
 }
 .cheat-sheet .cheat-item {
-  cursor: pointer;
+  text-align: center;
 }
