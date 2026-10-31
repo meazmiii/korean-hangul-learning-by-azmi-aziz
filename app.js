@@ -42,6 +42,12 @@ const quizData = [
   { char: "ㅢ", audio: "의" },
 ];
 
+const vowelCues = {
+  "ㅡ": { emoji: "😬", label: "gigi rapat" },
+  "ㅗ": { emoji: "😮", label: "mulut terkejut" },
+  "ㅜ": { emoji: "😗", label: "mulut mencium" },
+};
+
 const vocabData = [
   {
     k: "안녕하세요",
@@ -138,6 +144,11 @@ function createAudioButton(text, label = "Dengarkan") {
   return button;
 }
 
+function formatHangul(char) {
+  const cue = vowelCues[char];
+  return cue ? `${char} ${cue.emoji}` : char;
+}
+
 function renderHangulOptions(question, data, containerId, onAnswer) {
   const container = document.getElementById(containerId);
   if (!container) return;
@@ -148,8 +159,14 @@ function renderHangulOptions(question, data, containerId, onAnswer) {
   container.replaceChildren();
   options.forEach((option) => {
     const button = document.createElement("button");
-    button.textContent = option.char;
-    button.setAttribute("aria-label", `Pilih ${option.char}`);
+    button.textContent = formatHangul(option.char);
+    const cue = vowelCues[option.char];
+    button.setAttribute(
+      "aria-label",
+      cue
+        ? `Pilih ${option.char}, petunjuk ${cue.label}`
+        : `Pilih ${option.char}`,
+    );
     button.addEventListener("click", () =>
       onAnswer(button, option.char === question.char),
     );
@@ -167,7 +184,7 @@ function renderCheatSheet(gridId, data) {
     card.className = "cheat-item";
     const char = document.createElement("div");
     char.className = "char";
-    char.textContent = item.char;
+    char.textContent = formatHangul(item.char);
     card.append(char, createAudioButton(item.audio));
     grid.appendChild(card);
   });
