@@ -1,6 +1,6 @@
 {
-  "name": "Korean Learning App by Azmi Aziz",
-  "short_name": "Korean",
+  "name": "Korean Hangul Learning by Azmi Aziz",
+  "short_name": "Korean Hangul Learning by Azmi Aziz",
   "description": "Belajar Hangul dan kosakata Korea dengan audio interaktif",
   "start_url": ".",
   "display": "standalone",
