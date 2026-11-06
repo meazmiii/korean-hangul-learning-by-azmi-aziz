@@ -1,45 +1,24 @@
-// Monolithic app.js (single-file version)
 const quizData = [
-  { char: "ㄱ", audio: "가" },
-  { char: "ㄴ", audio: "나" },
-  { char: "ㄷ", audio: "다" },
-  { char: "ㄹ", audio: "라" },
-  { char: "ㅁ", audio: "마" },
-  { char: "ㅂ", audio: "바" },
-  { char: "ㅅ", audio: "사" },
-  { char: "ㅇ", audio: "아" },
-  { char: "ㅈ", audio: "자" },
-  { char: "ㅊ", audio: "차" },
-  { char: "ㅋ", audio: "카" },
-  { char: "ㅌ", audio: "타" },
-  { char: "ㅍ", audio: "파" },
-  { char: "ㅎ", audio: "하" },
-  { char: "ㄲ", audio: "까" },
-  { char: "ㄸ", audio: "따" },
-  { char: "ㅃ", audio: "빠" },
-  { char: "ㅆ", audio: "싸" },
-  { char: "ㅉ", audio: "짜" },
-  { char: "ㅏ", audio: "아" },
-  { char: "ㅑ", audio: "야" },
-  { char: "ㅓ", audio: "어" },
-  { char: "ㅕ", audio: "여" },
-  { char: "ㅗ", audio: "오" },
-  { char: "ㅛ", audio: "요" },
-  { char: "ㅜ", audio: "우" },
-  { char: "ㅠ", audio: "유" },
-  { char: "ㅡ", audio: "으" },
-  { char: "ㅣ", audio: "이" },
-  { char: "ㅐ", audio: "애" },
-  { char: "ㅒ", audio: "얘" },
-  { char: "ㅔ", audio: "에" },
-  { char: "ㅖ", audio: "예" },
-  { char: "ㅘ", audio: "와" },
-  { char: "ㅙ", audio: "왜" },
-  { char: "ㅚ", audio: "외" },
-  { char: "ㅝ", audio: "워" },
-  { char: "ㅞ", audio: "웨" },
-  { char: "ㅟ", audio: "위" },
-  { char: "ㅢ", audio: "의" },
+  { char: "ㄱ", audio: "가" }, { char: "ㄴ", audio: "나" },
+  { char: "ㄷ", audio: "다" }, { char: "ㄹ", audio: "라" },
+  { char: "ㅁ", audio: "마" }, { char: "ㅂ", audio: "바" },
+  { char: "ㅅ", audio: "사" }, { char: "ㅇ", audio: "아" },
+  { char: "ㅈ", audio: "자" }, { char: "ㅊ", audio: "차" },
+  { char: "ㅋ", audio: "카" }, { char: "ㅌ", audio: "타" },
+  { char: "ㅍ", audio: "파" }, { char: "ㅎ", audio: "하" },
+  { char: "ㄲ", audio: "까" }, { char: "ㄸ", audio: "따" },
+  { char: "ㅃ", audio: "빠" }, { char: "ㅆ", audio: "싸" },
+  { char: "ㅉ", audio: "짜" }, { char: "ㅏ", audio: "아" },
+  { char: "ㅑ", audio: "야" }, { char: "ㅓ", audio: "어" },
+  { char: "ㅕ", audio: "여" }, { char: "ㅗ", audio: "오" },
+  { char: "ㅛ", audio: "요" }, { char: "ㅜ", audio: "우" },
+  { char: "ㅠ", audio: "유" }, { char: "ㅡ", audio: "으" },
+  { char: "ㅣ", audio: "이" }, { char: "ㅐ", audio: "애" },
+  { char: "ㅒ", audio: "얘" }, { char: "ㅔ", audio: "에" },
+  { char: "ㅖ", audio: "예" }, { char: "ㅘ", audio: "와" },
+  { char: "ㅙ", audio: "왜" }, { char: "ㅚ", audio: "외" },
+  { char: "ㅝ", audio: "워" }, { char: "ㅞ", audio: "웨" },
+  { char: "ㅟ", audio: "위" }, { char: "ㅢ", audio: "의" },
 ];
 
 const vowelCues = {
@@ -51,28 +30,27 @@ const vowelCues = {
   "ㅜ": { emoji: "😗", label: "mulut mencium" },
 };
 
+const romanization = {
+  "ㄱ": "g/k", "ㄴ": "n", "ㄷ": "d/t", "ㄹ": "r/l", "ㅁ": "m",
+  "ㅂ": "b/p", "ㅅ": "s", "ㅇ": "ng / diam", "ㅈ": "j", "ㅊ": "ch",
+  "ㅋ": "k", "ㅌ": "t", "ㅍ": "p", "ㅎ": "h", "ㄲ": "kk",
+  "ㄸ": "tt", "ㅃ": "pp", "ㅆ": "ss", "ㅉ": "jj", "ㅏ": "a",
+  "ㅑ": "ya", "ㅓ": "eo", "ㅕ": "yeo", "ㅗ": "o", "ㅛ": "yo",
+  "ㅜ": "u", "ㅠ": "yu", "ㅡ": "eu", "ㅣ": "i", "ㅐ": "ae",
+  "ㅒ": "yae", "ㅔ": "e", "ㅖ": "ye", "ㅘ": "wa", "ㅙ": "wae",
+  "ㅚ": "oe", "ㅝ": "wo", "ㅞ": "we", "ㅟ": "wi", "ㅢ": "ui",
+};
+
 const vocabData = [
-  {
-    k: "안녕하세요",
-    t: "Halo / Selamat pagi / siang / malam",
-  },
+  { k: "안녕하세요", t: "Halo / Selamat pagi / siang / malam" },
   { k: "안녕하십니까", t: "Halo (lebih formal)" },
-  {
-    k: "안녕히 가세요",
-    t: "Selamat jalan (kepada yang pergi)",
-  },
-  {
-    k: "안녕히 계세요",
-    t: "Selamat tinggal (kepada yang tinggal)",
-  },
+  { k: "안녕히 가세요", t: "Selamat jalan (kepada yang pergi)" },
+  { k: "안녕히 계세요", t: "Selamat tinggal (kepada yang tinggal)" },
   { k: "감사합니다", t: "Terima kasih" },
   { k: "고맙습니다", t: "Terima kasih" },
   { k: "미안합니다", t: "Maaf" },
   { k: "죄송합니다", t: "Mohon maaf / Maaf" },
-  {
-    k: "괜찮습니다",
-    t: "Tidak apa-apa / Baik-baik saja",
-  },
+  { k: "괜찮습니다", t: "Tidak apa-apa / Baik-baik saja" },
   { k: "괜찮아요", t: "Tidak apa-apa / Baik-baik saja" },
   { k: "어디", t: "Mana / Di mana" },
   { k: "여기", t: "Sini / Di sini" },
@@ -97,36 +75,149 @@ const vocabData = [
   { k: "카드", t: "Kartu (kredit/debit)" },
   { k: "현금", t: "Uang tunai" },
   { k: "맛있어요", t: "Enak" },
+].map((item, index) => ({
+  ...item,
+  category: index < 10 ? "greetings" : index < 22 ? "places" : "food",
+}));
+
+const storageKey = "korean-learning-progress";
+const defaultState = {
+  manualProgressVersion: 1,
+  knownWords: [],
+  completedUnits: [],
+  bestScores: {},
+  quizCount: 0,
+  streak: 0,
+  lastStudyDate: "",
+  dailyDate: "",
+  dailyCorrect: 0,
+};
+const createDefaultState = () => ({
+  ...defaultState,
+  knownWords: [],
+  completedUnits: [],
+  bestScores: {},
+});
+
+const categoryNames = {
+  all: "Semua",
+  greetings: "Sapaan",
+  places: "Tempat",
+  food: "Makan & belanja",
+};
+const wordGroups = [
+  { id: "greetings", title: "Sapaan", start: 0, end: 10 },
+  { id: "places", title: "Tempat & arah", start: 10, end: 22 },
+  { id: "food", title: "Makan & belanja", start: 22, end: 33 },
+];
+const letterSets = {
+  all: { title: "Semua huruf", chars: quizData },
+  vowels: { title: "10 vokal dasar", chars: quizData.filter((item) => "ㅏㅑㅓㅕㅗㅛㅜㅠㅡㅣ".includes(item.char)) },
+  expanded: { title: "11 vokal perluasan", chars: quizData.filter((item) => "ㅢㅐㅒㅔㅖㅞㅘㅙㅟㅝㅚ".includes(item.char)) },
+  consonants: { title: "14 konsonan dasar", chars: quizData.filter((item) => "ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅎㅊㅋㅌㅍ".includes(item.char)) },
+  tense: { title: "5 konsonan tegang", chars: quizData.filter((item) => "ㄲㄸㅃㅆㅉ".includes(item.char)) },
+};
+const weeklyPlan = [
+  { title: "Hari 1", theme: "Vokal dasar", type: "vowels", target: 10 },
+  { title: "Hari 2", theme: "Konsonan dasar", type: "consonants", target: 14 },
+  { title: "Hari 3", theme: "Vokal perluasan", type: "expanded", target: 11 },
+  { title: "Hari 4", theme: "Konsonan tegang", type: "tense", target: 5 },
+  { title: "Hari 5", theme: "Sapaan", type: "greetings", target: 10 },
+  { title: "Hari 6", theme: "Tempat & arah", type: "places", target: 12 },
+  { title: "Hari 7", theme: "Makan & belanja", type: "food", target: 11 },
 ];
 
-function shuffle(array) {
-  return array.slice().sort(() => Math.random() - 0.5);
+let state = loadState();
+let activePage = "home";
+let activeLetterSet = "vowels";
+let activeVocabCategory = "all";
+let activeVocabIndex = 0;
+let vocabRevealed = false;
+let vocabListOpen = false;
+let currentQuiz = null;
+let toastTimer = 0;
+
+function loadState() {
+  try {
+    const stored = JSON.parse(localStorage.getItem(storageKey) || "{}");
+    const hasManualProgress = stored.manualProgressVersion === defaultState.manualProgressVersion;
+    return {
+      ...defaultState,
+      ...stored,
+      knownWords: hasManualProgress && Array.isArray(stored.knownWords)
+        ? stored.knownWords.filter((word) => vocabData.some((item) => item.k === word))
+        : [],
+      completedUnits: hasManualProgress && Array.isArray(stored.completedUnits) ? stored.completedUnits : [],
+      bestScores: stored.bestScores && typeof stored.bestScores === "object" ? stored.bestScores : {},
+    };
+  } catch {
+    return createDefaultState();
+  }
+}
+
+function saveState() {
+  try {
+    localStorage.setItem(storageKey, JSON.stringify(state));
+    return true;
+  } catch {
+    showToast("Progres tidak bisa disimpan di browser ini.");
+    return false;
+  }
+}
+
+function shuffle(items) {
+  const result = items.slice();
+  for (let index = result.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [result[index], result[randomIndex]] = [result[randomIndex], result[index]];
+  }
+  return result;
+}
+
+function todayKey(date = new Date()) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function changeStudyDay() {
+  const today = todayKey();
+  if (state.dailyDate !== today) {
+    state.dailyDate = today;
+    state.dailyCorrect = 0;
+    saveState();
+  }
+}
+
+function recordStudyDay() {
+  const today = todayKey();
+  if (state.lastStudyDate !== today) {
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    state.streak = state.lastStudyDate === todayKey(yesterday) ? state.streak + 1 : 1;
+    state.lastStudyDate = today;
+    saveState();
+  }
 }
 
 function speakKorean(text) {
   const status = document.getElementById("audio-status");
+  status.textContent = "";
   if (!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
-    if (status) status.textContent = "Audio tidak didukung di browser ini.";
+    status.textContent = "Audio tidak didukung di browser ini.";
     return;
   }
-
-  const voices = window.speechSynthesis.getVoices();
-  const koreanVoice = voices.find((voice) =>
-    voice.lang.toLowerCase().startsWith("ko"),
-  );
-
+  const voice = window.speechSynthesis.getVoices()
+    .find((item) => item.lang.toLowerCase().startsWith("ko"));
   window.speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = "ko-KR";
-  if (koreanVoice) utterance.voice = koreanVoice;
   utterance.rate = 0.85;
-  utterance.onstart = () => {
-    if (status) status.textContent = "";
-  };
+  if (voice) utterance.voice = voice;
   utterance.onerror = (event) => {
-    if (event.error === "canceled" || event.error === "interrupted") return;
-    if (status) {
-      status.textContent = koreanVoice
+    if (event.error !== "canceled" && event.error !== "interrupted") {
+      status.textContent = voice
         ? "Audio gagal diputar. Coba lagi."
         : "Browser tidak menemukan suara Korea. Pastikan Google Speech Services aktif.";
     }
@@ -134,469 +225,424 @@ function speakKorean(text) {
   window.speechSynthesis.speak(utterance);
 }
 
-function createAudioButton(text, label = "Dengarkan") {
-  const button = document.createElement("button");
-  button.type = "button";
-  button.className = "audio-button";
-  button.textContent = `🔊 ${label}`;
-  button.setAttribute("aria-label", `${label}: ${text}`);
-  button.addEventListener("click", (event) => {
-    event.stopPropagation();
-    speakKorean(text);
+function makeAudioButton(text) {
+  return `<button class="audio-button" data-speak="${escapeAttribute(text)}" aria-label="Dengarkan ${escapeAttribute(text)}">♫</button>`;
+}
+
+function escapeHtml(text) {
+  return String(text).replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+  })[char]);
+}
+
+function escapeAttribute(text) {
+  return escapeHtml(text);
+}
+
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("visible");
+  window.clearTimeout(toastTimer);
+  toastTimer = window.setTimeout(() => toast.classList.remove("visible"), 2800);
+}
+
+function setPage(page) {
+  activePage = page;
+  document.querySelectorAll("[data-page-link]").forEach((button) => {
+    button.classList.toggle("active", button.dataset.pageLink === page);
   });
-  return button;
+  const moreToggle = document.getElementById("mobile-more-toggle");
+  const moreMenu = document.getElementById("mobile-more-menu");
+  const isMorePage = page === "roadmap" || page === "progress";
+  moreToggle.classList.toggle("active", isMorePage);
+  moreToggle.setAttribute("aria-expanded", "false");
+  moreMenu.hidden = true;
+  renderPage();
 }
 
-function formatHangul(char) {
-  const cue = vowelCues[char];
-  return cue ? `${char} ${cue.emoji}` : char;
+function renderPage() {
+  const view = document.getElementById("app-view");
+  const renderers = {
+    home: renderHome,
+    roadmap: renderRoadmap,
+    hangul: renderHangul,
+    vocabulary: renderVocabulary,
+    practice: renderPractice,
+    progress: renderProgress,
+  };
+  view.innerHTML = (renderers[activePage] || renderHome)();
+  document.getElementById("streak-count").textContent = state.streak;
+  bindPageEvents();
 }
 
-function renderHangulOptions(question, data, containerId, onAnswer) {
-  const container = document.getElementById(containerId);
-  if (!container) return;
+function renderHome() {
+  const dailyProgress = Math.min(state.dailyCorrect / 5 * 100, 100);
+  return `
+    <section class="welcome-row">
+      <div>
+        <h1>Belajar <em>Korea.</em></h1>
+        <button class="button button-primary" data-go="hangul">Mulai <span>→</span></button>
+      </div>
+      <div class="hero-art" aria-hidden="true"><div class="hero-disc">한</div><span class="hero-stamp">한국어<br>KOREAN</span><span class="hero-hill"></span></div>
+    </section>
+    <section class="section-block">
+      <div class="section-heading"><h2>Belajar</h2><button class="text-button" data-go="progress">Progres →</button></div>
+      <div class="learning-cards">
+        <button class="learning-card" data-go="roadmap"><span class="learning-symbol">한</span><span class="card-title">Target 7 hari</span><span class="card-bottom">${state.completedUnits.length} / 4 kelompok <span>↗</span></span></button>
+        <button class="learning-card" data-go="hangul"><span class="learning-symbol">가</span><span class="card-title">Hangul</span><span class="card-bottom">40 huruf <span>↗</span></span></button>
+        <button class="learning-card" data-go="vocabulary"><span class="learning-symbol">말</span><span class="card-title">Kosakata</span><span class="card-bottom">${state.knownWords.length} / ${vocabData.length} kata <span>↗</span></span></button>
+      </div>
+    </section>
+    <section class="daily-goal">
+      <div class="goal-copy"><strong>Latihan hari ini</strong><small>${Math.min(state.dailyCorrect, 5)} / 5 benar</small></div>
+      <div class="goal-track"><i style="width:${dailyProgress}%"></i></div>
+      <button class="text-button" data-go="practice">Latihan →</button>
+    </section>
+    `;
+}
 
-  const distractors = shuffle(data.filter((item) => item.char !== question.char))
+function getWordGroupCount(group) {
+  return state.knownWords.filter((word) => {
+    const index = vocabData.findIndex((item) => item.k === word);
+    return index >= group.start && index < group.end;
+  }).length;
+}
+
+function getPlanProgress(day) {
+  if (day.type === "vowels" || day.type === "expanded" || day.type === "consonants" || day.type === "tense") {
+    return state.completedUnits.includes(day.type) ? day.target : 0;
+  }
+  const group = wordGroups.find((item) => item.id === day.type);
+  return getWordGroupCount(group);
+}
+
+function renderRoadmap() {
+  return `<div class="page-intro"><h1>Target <em>7 hari.</em></h1></div>
+    <div class="roadmap-list">${weeklyPlan.map((day, index) => {
+      const progress = getPlanProgress(day);
+      const done = progress >= day.target;
+      return `<article class="roadmap-day ${done ? "day-done" : ""}">
+        <span class="day-marker">${done ? "✓" : String(index + 1).padStart(2, "0")}</span>
+        <div class="day-copy"><strong>${day.theme}</strong><small>${progress} / ${day.target}</small></div>
+        <div class="day-progress"><i style="width:${Math.min(progress / day.target * 100, 100)}%"></i></div>
+        <button class="button button-light" data-plan-day="${index}">${done ? "Ulangi" : "Mulai"} →</button>
+      </article>`;
+    }).join("")}</div>`;
+}
+
+function renderHangul() {
+  const set = letterSets[activeLetterSet];
+  const progressItems = [
+    ["vowels", "10 Vokal"],
+    ["expanded", "11 Vokal perluasan"],
+    ["consonants", "14 Konsonan"],
+    ["tense", "5 Konsonan tegang"],
+  ];
+  return `<div class="page-intro"><h1><em>Hangul.</em></h1></div>
+    <div class="content-card">
+      <div class="lesson-tabs" role="tablist" aria-label="Kelompok huruf">${progressItems.map(([id, label]) => `<button role="tab" aria-selected="${activeLetterSet === id}" class="lesson-tab ${activeLetterSet === id ? "selected" : ""}" data-letter-set="${id}">${label.replace(/^\d+\s/, "")}</button>`).join("")}<button role="tab" aria-selected="${activeLetterSet === "all"}" class="lesson-tab ${activeLetterSet === "all" ? "selected" : ""}" data-letter-set="all">Semua</button></div>
+      <div class="lesson-heading"><strong>${set.title}</strong><span>${set.chars.length}</span></div>
+      <div class="hangul-grid">${set.chars.map((item) => `<article class="hangul-tile"><span class="hangul-char">${item.char}</span><span class="hangul-reading">${romanization[item.char]}</span><span class="hangul-example">${item.audio}</span>${makeAudioButton(item.audio)}</article>`).join("")}</div>
+      <div class="lesson-footer">${activeLetterSet === "all" ? "" : `<button class="mastery-toggle ${state.completedUnits.includes(activeLetterSet) ? "mastered" : ""}" data-toggle-unit="${activeLetterSet}" aria-pressed="${state.completedUnits.includes(activeLetterSet)}">${state.completedUnits.includes(activeLetterSet) ? "✓ Lancar" : "□ Sudah lancar"}</button>`}<button class="button button-primary" data-practice-set="${activeLetterSet}">Latihan →</button></div>
+    </div>`;
+}
+
+function getFilteredVocabulary() {
+  return activeVocabCategory === "all"
+    ? vocabData
+    : vocabData.filter((item) => item.category === activeVocabCategory);
+}
+
+function renderVocabulary() {
+  const categoryRanges = [
+    ["all", "Semua", vocabData.length],
+    ["greetings", "Sapaan", 10],
+    ["places", "Tempat", 12],
+    ["food", "Makan & belanja", 11],
+  ];
+  const deck = getFilteredVocabulary();
+  activeVocabIndex %= deck.length;
+  const item = deck[activeVocabIndex];
+  const learned = state.knownWords.includes(item.k);
+  return `<div class="page-intro"><h1><em>Kosakata.</em></h1></div>
+    <div class="vocab-stats"><strong>${state.knownWords.length}<small> / ${vocabData.length}</small></strong><span>lancar</span><div class="mini-track"><i style="width:${state.knownWords.length / vocabData.length * 100}%"></i></div></div>
+    <div class="vocab-filters">${categoryRanges.map(([id, label]) => `<button class="filter-chip ${activeVocabCategory === id ? "selected" : ""}" data-vocab-category="${id}">${label}</button>`).join("")}</div>
+    <section class="vocab-study-card">
+      <div class="vocab-card-top"><span>${categoryNames[item.category]}</span><span>${activeVocabIndex + 1} / ${deck.length}</span></div>
+      <div class="vocab-word">${item.k}</div>
+      ${vocabRevealed ? `<div class="vocab-answer">${item.t}</div>` : `<div class="vocab-answer is-hidden">Arti</div>`}
+      <div class="vocab-actions">${makeAudioButton(item.k)}<button class="button button-light" id="reveal-word">${vocabRevealed ? "Tutup arti" : "Arti"}</button></div>
+      <div class="vocab-controls"><button class="button button-light" id="previous-word" aria-label="Kata sebelumnya">←</button><button class="button ${learned ? "button-complete" : "button-dark"}" id="mark-word" aria-pressed="${learned}">${learned ? "Lancar ✓" : "Tandai lancar"}</button><button class="button button-light" id="next-word" aria-label="Kata berikutnya">→</button></div>
+    </section>
+    <button class="list-toggle" id="toggle-vocab-list">${vocabListOpen ? "Tutup daftar" : "Semua kata"}</button>
+    <div class="vocab-list ${vocabListOpen ? "active" : ""}" id="vocab-list">${deck.map((word, index) => `<button class="vocab-list-item ${state.knownWords.includes(word.k) ? "known" : ""}" data-vocab-index="${index}"><span>${word.k}</span><small>${state.knownWords.includes(word.k) ? "Diingat" : word.t}</small></button>`).join("")}</div>`;
+}
+
+function renderPractice() {
+  if (currentQuiz) return renderQuiz();
+  const sets = [
+    ["vowels", "10 Vokal", `${letterSets.vowels.chars.length} huruf`],
+    ["expanded", "Vokal perluasan", `${letterSets.expanded.chars.length} huruf`],
+    ["consonants", "Konsonan dasar", `${letterSets.consonants.chars.length} huruf`],
+    ["tense", "Konsonan tegang", `${letterSets.tense.chars.length} huruf`],
+    ["all", "Semua Hangul", `${quizData.length} huruf`],
+    ["greetings", "Sapaan", "10 kata"],
+    ["places", "Tempat & arah", "12 kata"],
+    ["food", "Makan & belanja", "11 kata"],
+    ["vocabulary", "Semua kosakata", `${vocabData.length} kata`],
+  ];
+  return `<div class="page-intro"><h1><em>Latihan.</em></h1></div>
+    <div class="practice-grid">${sets.map(([id, label, detail]) => `<button class="practice-choice" data-start-quiz="${id}"><span class="practice-symbol">${id === "all" ? "한" : ["vowels", "expanded", "consonants", "tense"].includes(id) ? "가" : "말"}</span><span><strong>${label}</strong><small>${detail}</small></span><span class="choice-arrow">→</span></button>`).join("")}</div>`;
+}
+
+function renderQuiz() {
+  if (currentQuiz.finished) {
+    const percent = Math.round(currentQuiz.score / currentQuiz.questions.length * 100);
+    const passed = percent >= 80;
+    return `<section class="content-card quiz-result"><h1>${passed ? "Bagus!" : "Coba lagi."}</h1><div class="result-score">${currentQuiz.score}<small> / ${currentQuiz.questions.length}</small></div><div class="quiz-result-actions"><button class="button button-primary" id="repeat-quiz">Ulangi</button><button class="button button-light" id="finish-quiz">Latihan lain</button></div></section>`;
+  }
+  const question = currentQuiz.questions[currentQuiz.index];
+  const isWordQuiz = currentQuiz.kind === "vocabulary";
+  return `<section class="content-card quiz-card">
+    <div class="quiz-topline"><button class="text-button" id="exit-quiz">← Keluar</button><span>SOAL ${currentQuiz.index + 1} / ${currentQuiz.questions.length}</span></div>
+    <div class="quiz-track"><i style="width:${currentQuiz.index / currentQuiz.questions.length * 100}%"></i></div>
+    <div class="quiz-prompt">${isWordQuiz ? question.k : "Dengarkan bunyinya"}</div>
+    ${isWordQuiz ? "" : `<button class="audio-button" data-speak="${question.audio}">♫ Dengarkan</button>`}
+    <p class="quiz-instruction">${isWordQuiz ? "Apa arti kata ini?" : "Pilih huruf yang sesuai dengan bunyi."}</p>
+    <div class="answer-grid">${question.options.map((option) => `<button class="answer-option" data-answer="${escapeAttribute(option)}">${escapeHtml(option)}</button>`).join("")}</div>
+    <p class="answer-feedback" aria-live="polite"></p>
+  </section>`;
+}
+
+function renderProgress() {
+  const total = letterSets.vowels.chars.length + letterSets.expanded.chars.length
+    + letterSets.consonants.chars.length + letterSets.tense.chars.length + vocabData.length;
+  const complete = state.completedUnits.reduce((count, id) => count + (letterSets[id]?.chars.length || 0), 0)
+    + state.knownWords.length;
+  const best = Math.max(0, ...Object.values(state.bestScores));
+  const items = [
+    ...Object.entries(letterSets).filter(([id]) => id !== "all").map(([id, set]) => ({
+      id, title: set.title, detail: `${state.completedUnits.includes(id) ? set.chars.length : 0} / ${set.chars.length} huruf`, percent: state.completedUnits.includes(id) ? 100 : 0,
+    })),
+    ...wordGroups.map((group) => ({
+      id: group.id, title: group.title, detail: `${getWordGroupCount(group)} / ${group.end - group.start} kata`, percent: getWordGroupCount(group) / (group.end - group.start) * 100,
+    })),
+  ];
+  return `<div class="page-intro"><h1><em>Progres.</em></h1></div>
+    <div class="progress-overview">
+      <article class="overview-card progress-ring-card"><div class="progress-ring" style="--progress:${complete / total * 100}%"><span>${Math.round(complete / total * 100)}<small>%</small></span></div><div><span class="eyebrow">LANCAR</span><strong>${complete} / ${total}</strong></div></article>
+      <article class="overview-card"><span class="eyebrow">KUIS</span><strong>${state.quizCount}</strong></article>
+      <article class="overview-card"><span class="eyebrow">SKOR TERBAIK</span><strong>${best}%</strong></article>
+    </div>
+    <section class="section-block progress-section"><div class="section-heading"><h2>Materi</h2><button class="text-button" id="reset-progress">Atur ulang</button></div>
+      <div class="progress-list">${items.map((item) => `<div class="progress-item"><span>${item.title}</span><div class="progress-item-track"><i style="width:${item.percent}%"></i></div><small>${item.detail.replace(/ huruf| kata/g, "")}</small></div>`).join("")}</div>
+    </section>`;
+}
+
+function makeQuizQuestion(question, pool, kind) {
+  const distractorAnswers = shuffle(pool.filter((item) => item !== question)
+    .map((item) => kind === "vocabulary" ? item.t : item.char))
+    .filter((answer, index, list) => answer !== (kind === "vocabulary" ? question.t : question.char)
+      && list.indexOf(answer) === index)
     .slice(0, 3);
-  const options = shuffle([question, ...distractors]);
-  container.replaceChildren();
-  options.forEach((option) => {
-    const button = document.createElement("button");
-    button.textContent = formatHangul(option.char);
-    const cue = vowelCues[option.char];
-    button.setAttribute(
-      "aria-label",
-      cue
-        ? `Pilih ${option.char}, petunjuk ${cue.label}`
-        : `Pilih ${option.char}`,
-    );
-    button.addEventListener("click", () =>
-      onAnswer(button, option.char === question.char),
-    );
-    container.appendChild(button);
-  });
+  const answer = kind === "vocabulary" ? question.t : question.char;
+  return {
+    ...question,
+    options: shuffle([answer, ...distractorAnswers]),
+    answer,
+  };
 }
 
-function renderCheatSheet(gridId, data) {
-  const grid = document.getElementById(gridId);
-  if (!grid) return;
-
-  grid.replaceChildren();
-  data.forEach((item) => {
-    const card = document.createElement("div");
-    card.className = "cheat-item";
-    const char = document.createElement("div");
-    char.className = "char";
-    char.textContent = formatHangul(item.char);
-    card.append(char, createAudioButton(item.audio));
-    grid.appendChild(card);
-  });
-}
-
-// Build a quiz pool of `count` items from `data`, allowing repeats when data.length < count
-function createQuizPool(data, count) {
-  const pool = [];
-  const src = data.slice();
-  while (pool.length < count) {
-    // take a random element from src
-    const item = src[Math.floor(Math.random() * src.length)];
-    pool.push(item);
-  }
-  return shuffle(pool);
-}
-
-// --- Main (40 huruf) ---
-let shuffledQuiz = [];
-let currentQuestion = 0;
-let score = 0;
-
-function initCheatSheet() {
-  renderCheatSheet("cheat-grid", quizData);
-}
-
-function initGame() {
-  shuffledQuiz = createQuizPool(quizData, 50);
-  currentQuestion = 0;
-  score = 0;
-  document.getElementById("score").innerText = score;
-  document.getElementById("total-num").innerText = shuffledQuiz.length;
-  initCheatSheet();
-  loadQuestion();
-}
-
-function loadQuestion() {
-  const container = document.getElementById("options-container");
-  if (!shuffledQuiz || shuffledQuiz.length === 0) {
-    if (container)
-      container.innerHTML =
-        '<div class="instructions">Tidak ada huruf untuk ditampilkan.</div>';
-    document.getElementById("current-num").innerText = 0;
+function startQuiz(type) {
+  const kind = ["vocabulary", "greetings", "places", "food"].includes(type) ? "vocabulary" : "hangul";
+  const pool = kind === "vocabulary"
+    ? type === "vocabulary" ? vocabData : vocabData.filter((item) => item.category === type)
+    : letterSets[type]?.chars || quizData;
+  if (pool.length < 2) {
+    showToast("Materi belum cukup untuk membuat kuis.");
     return;
   }
-  const q = shuffledQuiz[currentQuestion];
-  document.getElementById("current-num").innerText = currentQuestion + 1;
-  document.getElementById("play-audio").onclick = () => speakKorean(q.audio);
-  renderHangulOptions(q, quizData, "options-container", checkAnswer);
+  const questionCount = Math.min(10, pool.length);
+  currentQuiz = {
+    type,
+    kind,
+    questions: shuffle(pool).slice(0, questionCount).map((question) => makeQuizQuestion(question, pool, kind)),
+    index: 0,
+    score: 0,
+    finished: false,
+    answered: false,
+  };
+  setPage("practice");
 }
 
-function checkAnswer(btn, isCorrect) {
-  const buttons = document.querySelectorAll("#options-container button");
-  buttons.forEach((b) => (b.disabled = true));
-  if (isCorrect) {
-    btn.classList.add("correct");
-    score += 10;
-    document.getElementById("score").innerText = score;
+function recordCorrectAnswer() {
+  const today = todayKey();
+  if (state.dailyDate !== today) {
+    state.dailyDate = today;
+    state.dailyCorrect = 0;
+  }
+  state.dailyCorrect += 1;
+  recordStudyDay();
+}
+
+function answerQuestion(button) {
+  if (!currentQuiz || currentQuiz.answered) return;
+  currentQuiz.answered = true;
+  const question = currentQuiz.questions[currentQuiz.index];
+  const correct = button.dataset.answer === question.answer;
+  if (correct) {
+    currentQuiz.score += 1;
+    recordCorrectAnswer();
+  }
+  document.querySelectorAll(".answer-option").forEach((option) => {
+    option.disabled = true;
+    if (option.dataset.answer === question.answer) option.classList.add("correct");
+    else if (option === button) option.classList.add("wrong");
+  });
+  const feedback = document.querySelector(".answer-feedback");
+  feedback.textContent = correct ? "Benar!" : `Jawaban: ${question.answer}`;
+  feedback.classList.toggle("is-correct", correct);
+  saveState();
+  window.setTimeout(() => {
+    currentQuiz.index += 1;
+    currentQuiz.answered = false;
+    if (currentQuiz.index >= currentQuiz.questions.length) {
+      currentQuiz.finished = true;
+      state.quizCount += 1;
+      const percent = Math.round(currentQuiz.score / currentQuiz.questions.length * 100);
+      state.bestScores[currentQuiz.type] = Math.max(state.bestScores[currentQuiz.type] || 0, percent);
+      saveState();
+      changeStudyDay();
+    }
+    renderPage();
+  }, 650);
+}
+
+function markCurrentWord() {
+  const item = getFilteredVocabulary()[activeVocabIndex];
+  if (state.knownWords.includes(item.k)) {
+    state.knownWords = state.knownWords.filter((word) => word !== item.k);
   } else {
-    btn.classList.add("wrong");
+    state.knownWords.push(item.k);
   }
-  setTimeout(() => {
-    currentQuestion++;
-    if (currentQuestion < shuffledQuiz.length) loadQuestion();
-    else {
-      alert(
-        `Selesai! Skor akhir kamu: ${score} dari ${shuffledQuiz.length * 10}`,
-      );
-      initGame();
-    }
-  }, 600);
+  saveState();
+  renderPage();
 }
 
-// --- 10 Vokal ---
-let shuffledQuizVokal = [];
-let currentQuestionVokal = 0;
-let scoreVokal = 0;
-function getVowel10Quiz() {
-  const vowels = ["ㅏ", "ㅑ", "ㅓ", "ㅕ", "ㅗ", "ㅛ", "ㅜ", "ㅠ", "ㅡ", "ㅣ"];
-  return quizData.filter((it) => vowels.includes(it.char));
-}
-function initCheatSheetVokal() {
-  renderCheatSheet("cheat-grid-vokal", getVowel10Quiz());
-}
-function initGameVokal() {
-  shuffledQuizVokal = createQuizPool(getVowel10Quiz(), 50);
-  currentQuestionVokal = 0;
-  scoreVokal = 0;
-  document.getElementById("score-vokal").innerText = scoreVokal;
-  document.getElementById("total-num-vokal").innerText =
-    shuffledQuizVokal.length || 0;
-  initCheatSheetVokal();
-  loadQuestionVokal();
-}
-function loadQuestionVokal() {
-  const container = document.getElementById("options-container-vokal");
-  if (!shuffledQuizVokal || shuffledQuizVokal.length === 0) {
-    if (container)
-      container.innerHTML =
-        '<div class="instructions">Tidak ada huruf untuk ditampilkan.</div>';
-    document.getElementById("current-num-vokal").innerText = 0;
-    return;
-  }
-  const q = shuffledQuizVokal[currentQuestionVokal];
-  document.getElementById("current-num-vokal").innerText =
-    currentQuestionVokal + 1;
-  document.getElementById("play-audio-vokal").onclick = () =>
-    speakKorean(q.audio);
-  renderHangulOptions(
-    q,
-    getVowel10Quiz(),
-    "options-container-vokal",
-    checkAnswerVokal,
-  );
-}
-function checkAnswerVokal(btn, isCorrect) {
-  const buttons = document.querySelectorAll("#options-container-vokal button");
-  buttons.forEach((b) => (b.disabled = true));
-  if (isCorrect) {
-    btn.classList.add("correct");
-    scoreVokal += 10;
-    document.getElementById("score-vokal").innerText = scoreVokal;
-  } else btn.classList.add("wrong");
-  setTimeout(() => {
-    currentQuestionVokal++;
-    if (currentQuestionVokal < shuffledQuizVokal.length) loadQuestionVokal();
-    else {
-      alert(
-        `Selesai! Skor akhir kamu: ${scoreVokal} dari ${shuffledQuizVokal.length * 10}`,
-      );
-      initGameVokal();
+function bindPageEvents() {
+  document.querySelectorAll("[data-go]").forEach((button) => button.addEventListener("click", () => setPage(button.dataset.go)));
+  document.querySelectorAll("[data-letter-set]").forEach((button) => button.addEventListener("click", () => {
+    activeLetterSet = button.dataset.letterSet;
+    renderPage();
+  }));
+  document.querySelectorAll("[data-practice-set]").forEach((button) => button.addEventListener("click", () => startQuiz(button.dataset.practiceSet)));
+  document.querySelectorAll("[data-toggle-unit]").forEach((button) => button.addEventListener("click", () => {
+    const unit = button.dataset.toggleUnit;
+    state.completedUnits = state.completedUnits.includes(unit)
+      ? state.completedUnits.filter((item) => item !== unit)
+      : [...state.completedUnits, unit];
+    saveState();
+    renderPage();
+  }));
+  document.querySelectorAll("[data-start-quiz]").forEach((button) => button.addEventListener("click", () => startQuiz(button.dataset.startQuiz)));
+  document.querySelectorAll("[data-plan-day]").forEach((button) => button.addEventListener("click", () => {
+    const plan = weeklyPlan[Number(button.dataset.planDay)];
+    if (["greetings", "places", "food"].includes(plan.type)) {
+      activeVocabCategory = plan.type;
+      activeVocabIndex = 0;
+      setPage("vocabulary");
+    } else {
+      activeLetterSet = plan.type;
+      setPage("hangul");
     }
-  }, 600);
-}
-
-// --- 11 Vokal ---
-let shuffledQuizVokal11 = [];
-let currentQuestionVokal11 = 0;
-let scoreVokal11 = 0;
-function getVowel11Quiz() {
-  const chars = [
-    "ㅢ",
-    "ㅐ",
-    "ㅒ",
-    "ㅔ",
-    "ㅖ",
-    "ㅞ",
-    "ㅘ",
-    "ㅙ",
-    "ㅟ",
-    "ㅝ",
-    "ㅚ",
-  ];
-  return quizData.filter((item) => chars.includes(item.char));
-}
-function initCheatSheetVokal11() {
-  renderCheatSheet("cheat-grid-vokal11", getVowel11Quiz());
-}
-function initGameVokal11() {
-  shuffledQuizVokal11 = createQuizPool(getVowel11Quiz(), 50);
-  currentQuestionVokal11 = 0;
-  scoreVokal11 = 0;
-  document.getElementById("score-vokal11").innerText = scoreVokal11;
-  document.getElementById("total-num-vokal11").innerText =
-    shuffledQuizVokal11.length || 0;
-  initCheatSheetVokal11();
-  loadQuestionVokal11();
-}
-function loadQuestionVokal11() {
-  const container = document.getElementById("options-container-vokal11");
-  if (!shuffledQuizVokal11 || shuffledQuizVokal11.length === 0) {
-    if (container)
-      container.innerHTML =
-        '<div class="instructions">Tidak ada huruf untuk ditampilkan.</div>';
-    document.getElementById("current-num-vokal11").innerText = 0;
-    return;
-  }
-  const q = shuffledQuizVokal11[currentQuestionVokal11];
-  document.getElementById("current-num-vokal11").innerText =
-    currentQuestionVokal11 + 1;
-  document.getElementById("play-audio-vokal11").onclick = () =>
-    speakKorean(q.audio);
-  renderHangulOptions(
-    q,
-    getVowel11Quiz(),
-    "options-container-vokal11",
-    checkAnswerVokal11,
-  );
-}
-function checkAnswerVokal11(btn, isCorrect) {
-  const buttons = document.querySelectorAll(
-    "#options-container-vokal11 button",
-  );
-  buttons.forEach((b) => (b.disabled = true));
-  if (isCorrect) {
-    btn.classList.add("correct");
-    scoreVokal11 += 10;
-    document.getElementById("score-vokal11").innerText = scoreVokal11;
-  } else btn.classList.add("wrong");
-  setTimeout(() => {
-    currentQuestionVokal11++;
-    if (currentQuestionVokal11 < shuffledQuizVokal11.length)
-      loadQuestionVokal11();
-    else {
-      alert(
-        `Selesai! Skor akhir kamu: ${scoreVokal11} dari ${shuffledQuizVokal11.length * 10}`,
-      );
-      initGameVokal11();
-    }
-  }, 600);
-}
-
-// --- 14 Konsonan ---
-let shuffledQuizKonsonan = [];
-let currentQuestionKonsonan = 0;
-let scoreKonsonan = 0;
-function getKonsonan14Quiz() {
-  const chars = [
-    "ㄱ",
-    "ㄴ",
-    "ㄷ",
-    "ㄹ",
-    "ㅁ",
-    "ㅂ",
-    "ㅅ",
-    "ㅇ",
-    "ㅈ",
-    "ㅎ",
-    "ㅊ",
-    "ㅋ",
-    "ㅌ",
-    "ㅍ",
-  ];
-  return quizData
-    .filter((it) => chars.includes(it.char));
-}
-function initCheatSheetKonsonan() {
-  renderCheatSheet("cheat-grid-konsonan", getKonsonan14Quiz());
-}
-function initGameKonsonan() {
-  shuffledQuizKonsonan = createQuizPool(getKonsonan14Quiz(), 50);
-  currentQuestionKonsonan = 0;
-  scoreKonsonan = 0;
-  document.getElementById("score-konsonan").innerText = scoreKonsonan;
-  document.getElementById("total-num-konsonan").innerText =
-    shuffledQuizKonsonan.length || 0;
-  initCheatSheetKonsonan();
-  loadQuestionKonsonan();
-}
-function loadQuestionKonsonan() {
-  const container = document.getElementById("options-container-konsonan");
-  if (!shuffledQuizKonsonan || shuffledQuizKonsonan.length === 0) {
-    if (container)
-      container.innerHTML =
-        '<div class="instructions">Tidak ada huruf untuk ditampilkan.</div>';
-    document.getElementById("current-num-konsonan").innerText = 0;
-    return;
-  }
-  const q = shuffledQuizKonsonan[currentQuestionKonsonan];
-  document.getElementById("current-num-konsonan").innerText =
-    currentQuestionKonsonan + 1;
-  document.getElementById("play-audio-konsonan").onclick = () =>
-    speakKorean(q.audio);
-  renderHangulOptions(
-    q,
-    getKonsonan14Quiz(),
-    "options-container-konsonan",
-    checkAnswerKonsonan,
-  );
-}
-function checkAnswerKonsonan(btn, isCorrect) {
-  const buttons = document.querySelectorAll(
-    "#options-container-konsonan button",
-  );
-  buttons.forEach((b) => (b.disabled = true));
-  if (isCorrect) {
-    btn.classList.add("correct");
-    scoreKonsonan += 10;
-    document.getElementById("score-konsonan").innerText = scoreKonsonan;
-  } else btn.classList.add("wrong");
-  setTimeout(() => {
-    currentQuestionKonsonan++;
-    if (currentQuestionKonsonan < shuffledQuizKonsonan.length)
-      loadQuestionKonsonan();
-    else {
-      alert(
-        `Selesai! Skor akhir kamu: ${scoreKonsonan} dari ${shuffledQuizKonsonan.length * 10}`,
-      );
-      initGameKonsonan();
-    }
-  }, 600);
-}
-
-// --- Vocab module ---
-let shuffledVocab = [];
-let currentVocab = 0;
-let vocabRevealed = false;
-function initVocab() {
-  shuffledVocab = shuffle(vocabData);
-  currentVocab = 0;
-  vocabRevealed = false;
-  const totalEl = document.getElementById("vocab-total-num");
-  if (totalEl) totalEl.innerText = shuffledVocab.length;
-  renderVocabCard();
-  renderVocabList();
-  document.getElementById("prev-vocab").addEventListener("click", () => {
-    currentVocab =
-      (currentVocab - 1 + shuffledVocab.length) % shuffledVocab.length;
+  }));
+  document.querySelectorAll("[data-speak]").forEach((button) => button.addEventListener("click", (event) => {
+    event.stopPropagation();
+    speakKorean(button.dataset.speak);
+  }));
+  document.querySelectorAll("[data-vocab-category]").forEach((button) => button.addEventListener("click", () => {
+    activeVocabCategory = button.dataset.vocabCategory;
+    activeVocabIndex = 0;
     vocabRevealed = false;
-    renderVocabCard();
-  });
-  document.getElementById("next-vocab").addEventListener("click", () => {
-    currentVocab = (currentVocab + 1) % shuffledVocab.length;
+    renderPage();
+  }));
+  document.getElementById("previous-word")?.addEventListener("click", () => {
+    activeVocabIndex = (activeVocabIndex - 1 + getFilteredVocabulary().length) % getFilteredVocabulary().length;
     vocabRevealed = false;
-    renderVocabCard();
+    renderPage();
   });
-  document.getElementById("reveal-vocab").addEventListener("click", () => {
+  document.getElementById("next-word")?.addEventListener("click", () => {
+    activeVocabIndex = (activeVocabIndex + 1) % getFilteredVocabulary().length;
+    vocabRevealed = false;
+    renderPage();
+  });
+  document.getElementById("reveal-word")?.addEventListener("click", () => {
     vocabRevealed = !vocabRevealed;
-    renderVocabCard();
+    renderPage();
   });
-  document.getElementById("toggle-vocab-list").addEventListener("click", () => {
-    document.getElementById("vocab-list").classList.toggle("active");
+  document.getElementById("mark-word")?.addEventListener("click", markCurrentWord);
+  document.querySelectorAll("[data-vocab-index]").forEach((button) => button.addEventListener("click", () => {
+    activeVocabIndex = Number(button.dataset.vocabIndex);
+    vocabRevealed = false;
+    renderPage();
+  }));
+  document.getElementById("toggle-vocab-list")?.addEventListener("click", () => {
+    vocabListOpen = !vocabListOpen;
+    renderPage();
   });
-}
-function renderVocabCard() {
-  if (!shuffledVocab.length) return;
-  const item = shuffledVocab[currentVocab];
-  const k = document.getElementById("vocab-korean");
-  const t = document.getElementById("vocab-trans");
-  if (k) k.innerText = item.k;
-  document.getElementById("play-vocab-audio").onclick = () =>
-    speakKorean(item.k);
-  if (t) t.innerText = vocabRevealed ? item.t : "";
-  const revealBtn = document.getElementById("reveal-vocab");
-  if (revealBtn)
-    revealBtn.innerText = vocabRevealed ? "Sembunyikan" : "Tampilkan";
-  const cur = document.getElementById("vocab-current-num");
-  if (cur) cur.innerText = currentVocab + 1;
-}
-function renderVocabList() {
-  const grid = document.getElementById("vocab-list");
-  if (!grid) return;
-  grid.innerHTML = "";
-  shuffledVocab.forEach((it, idx) => {
-    const div = document.createElement("div");
-    div.className = "cheat-item";
-    const word = document.createElement("div");
-    word.className = "char";
-    word.textContent = it.k;
-    const translation = document.createElement("div");
-    translation.className = "vocab-trans";
-    translation.textContent = it.t;
-    div.append(word, createAudioButton(it.k), translation);
-    div.addEventListener("click", () => {
-      currentVocab = idx;
-      vocabRevealed = false;
-      renderVocabCard();
-    });
-    grid.appendChild(div);
+  document.querySelectorAll(".answer-option").forEach((button) => button.addEventListener("click", () => answerQuestion(button)));
+  document.getElementById("exit-quiz")?.addEventListener("click", () => {
+    currentQuiz = null;
+    renderPage();
+  });
+  document.getElementById("finish-quiz")?.addEventListener("click", () => {
+    currentQuiz = null;
+    setPage("practice");
+  });
+  document.getElementById("repeat-quiz")?.addEventListener("click", () => startQuiz(currentQuiz.type));
+  document.getElementById("reset-progress")?.addEventListener("click", () => {
+    if (!window.confirm("Yakin mau mengatur ulang semua progres belajar?")) return;
+    state = createDefaultState();
+    saveState();
+    renderPage();
+    showToast("Progres belajar sudah diatur ulang.");
   });
 }
 
-// --- Tabs handling ---
-function initTabs() {
-  const tabs = document.querySelectorAll(".tab");
-  const panels = document.querySelectorAll(".tab-panel");
-  tabs.forEach((t) =>
-    t.addEventListener("click", () => {
-      tabs.forEach((x) => x.classList.remove("active"));
-      panels.forEach((p) => p.classList.remove("active"));
-      t.classList.add("active");
-      const id = t.getAttribute("data-tab");
-      if (id === "huruf") {
-        document.getElementById("panel-huruf").classList.add("active");
-        initGame();
-      } else if (id === "vokal10") {
-        document.getElementById("panel-vokal10").classList.add("active");
-        initGameVokal();
-      } else if (id === "vokal11") {
-        document.getElementById("panel-vokal11").classList.add("active");
-        initGameVokal11();
-      } else if (id === "konsonan14") {
-        document.getElementById("panel-konsonan14").classList.add("active");
-        initGameKonsonan();
-      } else if (id === "kata") {
-        document.getElementById("panel-kata").classList.add("active");
-      }
-    }),
-  );
-  const cheats = document.querySelectorAll(".btn-cheat[data-panel]");
-  cheats.forEach((b) =>
-    b.addEventListener("click", () => {
-      const panel = b.getAttribute("data-panel");
-      let id = "cheat-sheet";
-      if (panel && panel !== "huruf") {
-        if (panel === "vokal10") id = "cheat-sheet-vokal";
-        else if (panel === "vokal11") id = "cheat-sheet-vokal11";
-        else if (panel === "konsonan14") id = "cheat-sheet-konsonan";
-        else id = `cheat-sheet-${panel.replace(/panel-?/, "")}`;
-      }
-      const el = document.getElementById(id);
-      if (el) el.classList.toggle("active");
-    }),
-  );
-}
+document.querySelectorAll("[data-page-link]").forEach((button) => button.addEventListener("click", (event) => {
+  event.preventDefault();
+  setPage(button.dataset.pageLink);
+}));
 
-// init on DOM ready
-window.addEventListener("DOMContentLoaded", () => {
-  initTabs();
-  initGame();
-  initVocab();
+document.getElementById("mobile-more-toggle").addEventListener("click", () => {
+  const toggle = document.getElementById("mobile-more-toggle");
+  const menu = document.getElementById("mobile-more-menu");
+  const isOpen = toggle.getAttribute("aria-expanded") === "true";
+  toggle.setAttribute("aria-expanded", String(!isOpen));
+  menu.hidden = isOpen;
 });
+
+document.addEventListener("click", (event) => {
+  const menu = document.getElementById("mobile-more-menu");
+  const toggle = document.getElementById("mobile-more-toggle");
+  if (!menu.hidden && !menu.contains(event.target) && !toggle.contains(event.target)) {
+    menu.hidden = true;
+    toggle.setAttribute("aria-expanded", "false");
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  const menu = document.getElementById("mobile-more-menu");
+  const toggle = document.getElementById("mobile-more-toggle");
+  if (!menu.hidden) {
+    menu.hidden = true;
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.focus();
+  }
+});
+
+changeStudyDay();
+saveState();
+renderPage();

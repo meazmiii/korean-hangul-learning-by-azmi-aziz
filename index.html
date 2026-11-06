@@ -3,178 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Korean Learning App by Azmi Aziz</title>
-    <link rel="stylesheet" href="css/styles.css?v=hangul-audio-4" />
-    <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="icons/icon.svg" />
-    <link rel="manifest" href="manifest.json" />
-    <meta name="theme-color" content="#ffffff" />
+    <title>Korean Learning — Belajar Bahasa Korea</title>
+    <meta name="theme-color" content="#faf8f3" />
+    <meta name="description" content="Belajar Hangul dan kosakata Korea bertahap dengan kartu belajar dan kuis." />
+    <link rel="stylesheet" href="css/styles.css?v=korean-learning-path-1" />
+    <link rel="stylesheet" href="css/learning-path.css?v=taegeuk-icon-final" />
+    <link rel="icon" href="icons/favicon.ico?v=taegeuk-icon-final" sizes="any" />
+    <link rel="icon" href="icons/favicon.png?v=taegeuk-icon-final" type="image/png" sizes="64x64" />
+    <link rel="apple-touch-icon" href="icons/app-icon-192.png?v=taegeuk-icon-final" />
+    <link rel="manifest" href="manifest.json?v=taegeuk-icon-final" />
   </head>
   <body>
-    <div class="container">
-      <div class="tabs" role="tablist">
-        <button class="tab active" data-tab="huruf" aria-controls="panel-huruf">
-          Huruf
-        </button>
-        <button class="tab" data-tab="vokal10" aria-controls="panel-vokal10">
-          10 Vokal
-        </button>
-        <button class="tab" data-tab="vokal11" aria-controls="panel-vokal11">
-          11 Vokal Perluasan
-        </button>
-        <button
-          class="tab"
-          data-tab="konsonan14"
-          aria-controls="panel-konsonan14"
-        >
-          14 Konsonan
-        </button>
-        <button class="tab" data-tab="kata" aria-controls="panel-kata">
-          Kata
-        </button>
-      </div>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#" data-page-link="home" aria-label="Korean Learning beranda">
+          <img src="icons/app-icon-192.png?v=taegeuk-icon-final" alt="" />
+          <span>Korean Learning<small>한국어 학습</small></span>
+        </a>
+        <nav class="main-nav" aria-label="Menu utama">
+          <button class="nav-item active" data-page-link="home"><span class="nav-icon">⌂</span>Beranda</button>
+          <button class="nav-item" data-page-link="roadmap"><span class="nav-icon">▦</span>Target 7 Hari</button>
+          <button class="nav-item" data-page-link="hangul"><span class="nav-icon">한</span>Belajar Hangul</button>
+          <button class="nav-item" data-page-link="vocabulary"><span class="nav-icon">言</span>Kotoba</button>
+          <button class="nav-item" data-page-link="practice"><span class="nav-icon">✳</span>Latihan</button>
+          <button class="nav-item" data-page-link="progress"><span class="nav-icon">▥</span>Progres</button>
+        </nav>
+      </aside>
 
-      <div class="tab-panel active" id="panel-huruf">
-        <!-- (Filter buttons removed) -->
-
-        <!-- Area Utama Game -->
-        <div class="card">
-          <div class="score-board">Skor: <span id="score">0</span></div>
-          <div class="progress">
-            Huruf ke-<span id="current-num">1</span> dari
-            <span id="total-num">40</span>
-          </div>
-          <div class="korean-char audio-prompt">Dengarkan bunyi Hangul</div>
-          <button class="audio-button" id="play-audio" type="button">
-            🔊 Dengarkan
-          </button>
-          <p class="instructions">Pilih Hangul yang sesuai:</p>
-          <div class="options-grid" id="options-container"></div>
-
-          <button class="btn-cheat" data-panel="huruf">
-            💡 Lihat daftar Hangul (Buka/Tutup)
-          </button>
-        </div>
-
-        <!-- Area Cheat Sheet / Kamus -->
-        <div class="cheat-sheet" id="cheat-sheet">
-          <h3>Hangul (40 huruf)</h3>
-          <div class="cheat-grid" id="cheat-grid"></div>
-        </div>
-      </div>
-
-      <div class="tab-panel" id="panel-kata">
-        <!-- Area Belajar Kata -->
-        <div class="card" id="vocab-card">
-          <h3>Belajar Kata</h3>
-          <div class="score-board">
-            Kata ke-<span id="vocab-current-num">1</span> dari
-            <span id="vocab-total-num">0</span>
-          </div>
-          <div id="vocab-flashcard" class="vocab-flashcard">
-            <div id="vocab-korean" class="korean-char small"></div>
-            <button class="audio-button" id="play-vocab-audio" type="button">
-              🔊 Dengarkan
-            </button>
-            <div id="vocab-trans" class="vocab-trans"></div>
-          </div>
-
-          <div class="vocab-controls">
-            <button id="prev-vocab">← Sebelumnya</button>
-            <button id="reveal-vocab">Tampilkan</button>
-            <button id="next-vocab">Selanjutnya →</button>
-          </div>
-
-          <button id="toggle-vocab-list" class="btn-cheat">
-            Daftar Kata (Buka/Tutup)
-          </button>
-
-          <div id="vocab-list" class="vocab-list"></div>
-        </div>
-      </div>
-
-      <div class="tab-panel" id="panel-vokal10">
-        <!-- 10 Vokal Dasar -->
-        <div class="card">
-          <div class="score-board">Skor: <span id="score-vokal">0</span></div>
-          <div class="progress">
-            Huruf ke-<span id="current-num-vokal">1</span> dari
-            <span id="total-num-vokal">0</span>
-          </div>
-          <div class="korean-char audio-prompt">Dengarkan bunyi Hangul</div>
-          <button class="audio-button" id="play-audio-vokal" type="button">
-            🔊 Dengarkan
-          </button>
-          <p class="instructions">Pilih Hangul yang sesuai:</p>
-          <div class="options-grid" id="options-container-vokal"></div>
-
-          <button class="btn-cheat" data-panel="vokal10">
-            💡 Intip Cheat Vokal (Buka/Tutup)
-          </button>
-        </div>
-
-        <div class="cheat-sheet" id="cheat-sheet-vokal">
-          <h3>10 Vokal</h3>
-          <div class="cheat-grid" id="cheat-grid-vokal"></div>
-        </div>
-      </div>
-
-      <div class="tab-panel" id="panel-vokal11">
-        <!-- 11 Vokal Perluasan -->
-        <div class="card">
-          <div class="score-board">Skor: <span id="score-vokal11">0</span></div>
-          <div class="progress">
-            Huruf ke-<span id="current-num-vokal11">1</span> dari
-            <span id="total-num-vokal11">0</span>
-          </div>
-          <div class="korean-char audio-prompt">Dengarkan bunyi Hangul</div>
-          <button class="audio-button" id="play-audio-vokal11" type="button">
-            🔊 Dengarkan
-          </button>
-          <p class="instructions">Pilih Hangul yang sesuai:</p>
-          <div class="options-grid" id="options-container-vokal11"></div>
-
-          <button class="btn-cheat" data-panel="vokal11">
-            💡 Intip Cheat Vokal Perluasan (Buka/Tutup)
-          </button>
-        </div>
-
-        <div class="cheat-sheet" id="cheat-sheet-vokal11">
-          <h3>11 Vokal Perluasan</h3>
-          <div class="cheat-grid" id="cheat-grid-vokal11"></div>
-        </div>
-      </div>
-
-      <div class="tab-panel" id="panel-konsonan14">
-        <!-- 14 Konsonan Dasar -->
-        <div class="card">
-          <div class="score-board">
-            Skor: <span id="score-konsonan">0</span>
-          </div>
-          <div class="progress">
-            Konsonan ke-<span id="current-num-konsonan">1</span> dari
-            <span id="total-num-konsonan">0</span>
-          </div>
-          <div class="korean-char audio-prompt">Dengarkan bunyi Hangul</div>
-          <button class="audio-button" id="play-audio-konsonan" type="button">
-            🔊 Dengarkan
-          </button>
-          <p class="instructions">Pilih Hangul yang sesuai:</p>
-          <div class="options-grid" id="options-container-konsonan"></div>
-
-          <button class="btn-cheat" data-panel="konsonan14">
-            💡 Intip Cheat Konsonan (Buka/Tutup)
-          </button>
-        </div>
-
-        <div class="cheat-sheet" id="cheat-sheet-konsonan">
-          <h3>14 Konsonan Dasar</h3>
-          <div class="cheat-grid" id="cheat-grid-konsonan"></div>
-        </div>
-      </div>
+      <main class="main-content">
+        <header class="topbar">
+          <span class="streak">🔥 <strong id="streak-count">0</strong> hari</span>
+        </header>
+        <div id="app-view" class="page-content" tabindex="-1"></div>
+      </main>
     </div>
 
+    <div id="mobile-more-menu" class="mobile-more-menu" aria-label="Menu lainnya" hidden>
+      <button class="more-menu-item" data-page-link="roadmap">▦ Target 7 Hari</button>
+      <button class="more-menu-item" data-page-link="progress">▥ Progres</button>
+    </div>
+    <nav class="mobile-bottom-nav" aria-label="Navigasi utama">
+      <button class="mobile-tab active" data-page-link="home"><span>⌂</span>Beranda</button>
+      <button class="mobile-tab" data-page-link="hangul"><span>한</span>Hangul</button>
+      <button class="mobile-tab" data-page-link="vocabulary"><span>言</span>Kotoba</button>
+      <button class="mobile-tab" data-page-link="practice"><span>✳</span>Latihan</button>
+      <button class="mobile-tab mobile-more-toggle" id="mobile-more-toggle" type="button" aria-expanded="false" aria-controls="mobile-more-menu"><span>•••</span>Lainnya</button>
+    </nav>
     <p id="audio-status" class="audio-status" role="status" aria-live="polite"></p>
-    <script type="module" src="app.js?v=hangul-audio-4"></script>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="app.js?v=korean-learning-path-1"></script>
   </body>
 </html>
